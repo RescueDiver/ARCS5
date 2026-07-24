@@ -1,0 +1,1865 @@
+{
+  "grouping_method": "Largest training input grid, grouped using the largest natural gaps in total cell count.",
+  "group_order": [
+    "small",
+    "small_medium",
+    "medium",
+    "medium_large",
+    "large",
+    "very_large",
+    "wtf"
+  ],
+  "groups": {
+    "small": {
+      "task_count": 1,
+      "minimum_cells": 36,
+      "maximum_cells": 36,
+      "task_ids": [
+        "eee78d87"
+      ]
+    },
+    "small_medium": {
+      "task_count": 52,
+      "minimum_cells": 91,
+      "maximum_cells": 361,
+      "task_ids": [
+        "20270e3b",
+        "28a6681f",
+        "d35bdbdc",
+        "78332cb0",
+        "dd6b8c4b",
+        "3dc255db",
+        "b6f77b65",
+        "dbff022c",
+        "faa9f03d",
+        "97d7923e",
+        "269e22fb",
+        "4c3d4a41",
+        "b0039139",
+        "e8686506",
+        "7491f3cf",
+        "16de56c4",
+        "21897d95",
+        "1ae2feb7",
+        "45a5af55",
+        "bf45cf4b",
+        "247ef758",
+        "291dc1e1",
+        "136b0064",
+        "31f7f899",
+        "65b59efc",
+        "446ef5d2",
+        "36a08778",
+        "db695cfb",
+        "581f7754",
+        "2b83f449",
+        "1818057f",
+        "332f06d7",
+        "409aa875",
+        "6e453dd6",
+        "7666fa5d",
+        "7b5033c1",
+        "d59b0160",
+        "e376de54",
+        "f931b4a8",
+        "9385bd28",
+        "9bbf930d",
+        "b9e38dc0",
+        "271d71e2",
+        "88bcf3b4",
+        "5545f144",
+        "71e489b6",
+        "4a21e3da",
+        "7ed72f31",
+        "c7f57c3e",
+        "53fb4810",
+        "cb2d8a2c",
+        "db0c5428"
+      ]
+    },
+    "medium": {
+      "task_count": 30,
+      "minimum_cells": 400,
+      "maximum_cells": 500,
+      "task_ids": [
+        "13e47133",
+        "142ca369",
+        "35ab12c3",
+        "5dbc8537",
+        "6ffbe589",
+        "7b0280bc",
+        "7b3084d4",
+        "800d221b",
+        "88e364bc",
+        "8f3a5a89",
+        "abc82100",
+        "de809cff",
+        "dfadab01",
+        "f560132c",
+        "8b9c3697",
+        "8b7bacbf",
+        "58f5dbd5",
+        "a25697e4",
+        "135a2760",
+        "38007db0",
+        "3a25b0d8",
+        "8e5c0c38",
+        "a395ee82",
+        "a47bf94d",
+        "b5ca7ac4",
+        "cbebaa4b",
+        "da515329",
+        "fc7cae8d",
+        "2c181942",
+        "2d0172a1"
+      ]
+    },
+    "medium_large": {
+      "task_count": 19,
+      "minimum_cells": 529,
+      "maximum_cells": 676,
+      "task_ids": [
+        "4c416de3",
+        "58490d8a",
+        "8f215267",
+        "c4d067a0",
+        "2ba387bc",
+        "edb79dae",
+        "898e7135",
+        "5961cc34",
+        "e12f9a14",
+        "a32d8b75",
+        "e87109e9",
+        "4e34c42c",
+        "89565ca0",
+        "195c6913",
+        "221dfab4",
+        "aa4ec2a5",
+        "d8e07eb2",
+        "7b80bb43",
+        "6e4f6532"
+      ]
+    },
+    "large": {
+      "task_count": 5,
+      "minimum_cells": 720,
+      "maximum_cells": 754,
+      "task_ids": [
+        "80a900e0",
+        "7c66cb00",
+        "3e6067c3",
+        "b10624e5",
+        "64efde09"
+      ]
+    },
+    "very_large": {
+      "task_count": 1,
+      "minimum_cells": 841,
+      "maximum_cells": 841,
+      "task_ids": [
+        "b99e7126"
+      ]
+    },
+    "wtf": {
+      "task_count": 12,
+      "minimum_cells": 900,
+      "maximum_cells": 900,
+      "task_ids": [
+        "0934a4d8",
+        "16b78196",
+        "20a9e565",
+        "4c7dc4dd",
+        "62593bfd",
+        "67e490f4",
+        "8698868d",
+        "981571dc",
+        "9aaea919",
+        "a251c730",
+        "a6f40cea",
+        "e3721c99"
+      ]
+    }
+  },
+  "tasks": {
+    "eee78d87": {
+      "size_group": "small",
+      "largest_train_input": {
+        "height": 6,
+        "width": 6,
+        "cells": 36
+      },
+      "smallest_train_input": {
+        "height": 6,
+        "width": 6,
+        "cells": 36
+      },
+      "train_input_count": 3
+    },
+    "20270e3b": {
+      "size_group": "small_medium",
+      "largest_train_input": {
+        "height": 7,
+        "width": 13,
+        "cells": 91
+      },
+      "smallest_train_input": {
+        "height": 9,
+        "width": 3,
+        "cells": 27
+      },
+      "train_input_count": 4
+    },
+    "28a6681f": {
+      "size_group": "small_medium",
+      "largest_train_input": {
+        "height": 10,
+        "width": 10,
+        "cells": 100
+      },
+      "smallest_train_input": {
+        "height": 10,
+        "width": 10,
+        "cells": 100
+      },
+      "train_input_count": 3
+    },
+    "d35bdbdc": {
+      "size_group": "small_medium",
+      "largest_train_input": {
+        "height": 10,
+        "width": 10,
+        "cells": 100
+      },
+      "smallest_train_input": {
+        "height": 10,
+        "width": 10,
+        "cells": 100
+      },
+      "train_input_count": 3
+    },
+    "78332cb0": {
+      "size_group": "small_medium",
+      "largest_train_input": {
+        "height": 11,
+        "width": 11,
+        "cells": 121
+      },
+      "smallest_train_input": {
+        "height": 5,
+        "width": 17,
+        "cells": 85
+      },
+      "train_input_count": 3
+    },
+    "dd6b8c4b": {
+      "size_group": "small_medium",
+      "largest_train_input": {
+        "height": 11,
+        "width": 11,
+        "cells": 121
+      },
+      "smallest_train_input": {
+        "height": 11,
+        "width": 11,
+        "cells": 121
+      },
+      "train_input_count": 3
+    },
+    "3dc255db": {
+      "size_group": "small_medium",
+      "largest_train_input": {
+        "height": 12,
+        "width": 12,
+        "cells": 144
+      },
+      "smallest_train_input": {
+        "height": 10,
+        "width": 10,
+        "cells": 100
+      },
+      "train_input_count": 3
+    },
+    "b6f77b65": {
+      "size_group": "small_medium",
+      "largest_train_input": {
+        "height": 12,
+        "width": 12,
+        "cells": 144
+      },
+      "smallest_train_input": {
+        "height": 12,
+        "width": 12,
+        "cells": 144
+      },
+      "train_input_count": 5
+    },
+    "dbff022c": {
+      "size_group": "small_medium",
+      "largest_train_input": {
+        "height": 12,
+        "width": 12,
+        "cells": 144
+      },
+      "smallest_train_input": {
+        "height": 4,
+        "width": 15,
+        "cells": 60
+      },
+      "train_input_count": 3
+    },
+    "faa9f03d": {
+      "size_group": "small_medium",
+      "largest_train_input": {
+        "height": 12,
+        "width": 12,
+        "cells": 144
+      },
+      "smallest_train_input": {
+        "height": 12,
+        "width": 12,
+        "cells": 144
+      },
+      "train_input_count": 3
+    },
+    "97d7923e": {
+      "size_group": "small_medium",
+      "largest_train_input": {
+        "height": 10,
+        "width": 15,
+        "cells": 150
+      },
+      "smallest_train_input": {
+        "height": 10,
+        "width": 10,
+        "cells": 100
+      },
+      "train_input_count": 3
+    },
+    "269e22fb": {
+      "size_group": "small_medium",
+      "largest_train_input": {
+        "height": 13,
+        "width": 12,
+        "cells": 156
+      },
+      "smallest_train_input": {
+        "height": 8,
+        "width": 10,
+        "cells": 80
+      },
+      "train_input_count": 5
+    },
+    "4c3d4a41": {
+      "size_group": "small_medium",
+      "largest_train_input": {
+        "height": 8,
+        "width": 20,
+        "cells": 160
+      },
+      "smallest_train_input": {
+        "height": 8,
+        "width": 20,
+        "cells": 160
+      },
+      "train_input_count": 2
+    },
+    "b0039139": {
+      "size_group": "small_medium",
+      "largest_train_input": {
+        "height": 6,
+        "width": 27,
+        "cells": 162
+      },
+      "smallest_train_input": {
+        "height": 18,
+        "width": 4,
+        "cells": 72
+      },
+      "train_input_count": 4
+    },
+    "e8686506": {
+      "size_group": "small_medium",
+      "largest_train_input": {
+        "height": 13,
+        "width": 13,
+        "cells": 169
+      },
+      "smallest_train_input": {
+        "height": 13,
+        "width": 13,
+        "cells": 169
+      },
+      "train_input_count": 2
+    },
+    "7491f3cf": {
+      "size_group": "small_medium",
+      "largest_train_input": {
+        "height": 7,
+        "width": 25,
+        "cells": 175
+      },
+      "smallest_train_input": {
+        "height": 7,
+        "width": 25,
+        "cells": 175
+      },
+      "train_input_count": 4
+    },
+    "16de56c4": {
+      "size_group": "small_medium",
+      "largest_train_input": {
+        "height": 9,
+        "width": 20,
+        "cells": 180
+      },
+      "smallest_train_input": {
+        "height": 7,
+        "width": 15,
+        "cells": 105
+      },
+      "train_input_count": 3
+    },
+    "21897d95": {
+      "size_group": "small_medium",
+      "largest_train_input": {
+        "height": 16,
+        "width": 12,
+        "cells": 192
+      },
+      "smallest_train_input": {
+        "height": 10,
+        "width": 10,
+        "cells": 100
+      },
+      "train_input_count": 4
+    },
+    "1ae2feb7": {
+      "size_group": "small_medium",
+      "largest_train_input": {
+        "height": 13,
+        "width": 15,
+        "cells": 195
+      },
+      "smallest_train_input": {
+        "height": 11,
+        "width": 16,
+        "cells": 176
+      },
+      "train_input_count": 3
+    },
+    "45a5af55": {
+      "size_group": "small_medium",
+      "largest_train_input": {
+        "height": 14,
+        "width": 14,
+        "cells": 196
+      },
+      "smallest_train_input": {
+        "height": 13,
+        "width": 12,
+        "cells": 156
+      },
+      "train_input_count": 2
+    },
+    "bf45cf4b": {
+      "size_group": "small_medium",
+      "largest_train_input": {
+        "height": 12,
+        "width": 17,
+        "cells": 204
+      },
+      "smallest_train_input": {
+        "height": 12,
+        "width": 12,
+        "cells": 144
+      },
+      "train_input_count": 3
+    },
+    "247ef758": {
+      "size_group": "small_medium",
+      "largest_train_input": {
+        "height": 12,
+        "width": 18,
+        "cells": 216
+      },
+      "smallest_train_input": {
+        "height": 10,
+        "width": 14,
+        "cells": 140
+      },
+      "train_input_count": 3
+    },
+    "291dc1e1": {
+      "size_group": "small_medium",
+      "largest_train_input": {
+        "height": 8,
+        "width": 28,
+        "cells": 224
+      },
+      "smallest_train_input": {
+        "height": 8,
+        "width": 11,
+        "cells": 88
+      },
+      "train_input_count": 4
+    },
+    "136b0064": {
+      "size_group": "small_medium",
+      "largest_train_input": {
+        "height": 15,
+        "width": 15,
+        "cells": 225
+      },
+      "smallest_train_input": {
+        "height": 7,
+        "width": 15,
+        "cells": 105
+      },
+      "train_input_count": 3
+    },
+    "31f7f899": {
+      "size_group": "small_medium",
+      "largest_train_input": {
+        "height": 15,
+        "width": 15,
+        "cells": 225
+      },
+      "smallest_train_input": {
+        "height": 7,
+        "width": 7,
+        "cells": 49
+      },
+      "train_input_count": 3
+    },
+    "65b59efc": {
+      "size_group": "small_medium",
+      "largest_train_input": {
+        "height": 14,
+        "width": 17,
+        "cells": 238
+      },
+      "smallest_train_input": {
+        "height": 10,
+        "width": 11,
+        "cells": 110
+      },
+      "train_input_count": 3
+    },
+    "446ef5d2": {
+      "size_group": "small_medium",
+      "largest_train_input": {
+        "height": 12,
+        "width": 20,
+        "cells": 240
+      },
+      "smallest_train_input": {
+        "height": 10,
+        "width": 10,
+        "cells": 100
+      },
+      "train_input_count": 2
+    },
+    "36a08778": {
+      "size_group": "small_medium",
+      "largest_train_input": {
+        "height": 15,
+        "width": 16,
+        "cells": 240
+      },
+      "smallest_train_input": {
+        "height": 14,
+        "width": 5,
+        "cells": 70
+      },
+      "train_input_count": 6
+    },
+    "db695cfb": {
+      "size_group": "small_medium",
+      "largest_train_input": {
+        "height": 15,
+        "width": 16,
+        "cells": 240
+      },
+      "smallest_train_input": {
+        "height": 9,
+        "width": 9,
+        "cells": 81
+      },
+      "train_input_count": 5
+    },
+    "581f7754": {
+      "size_group": "small_medium",
+      "largest_train_input": {
+        "height": 22,
+        "width": 11,
+        "cells": 242
+      },
+      "smallest_train_input": {
+        "height": 18,
+        "width": 8,
+        "cells": 144
+      },
+      "train_input_count": 3
+    },
+    "2b83f449": {
+      "size_group": "small_medium",
+      "largest_train_input": {
+        "height": 13,
+        "width": 19,
+        "cells": 247
+      },
+      "smallest_train_input": {
+        "height": 11,
+        "width": 16,
+        "cells": 176
+      },
+      "train_input_count": 2
+    },
+    "1818057f": {
+      "size_group": "small_medium",
+      "largest_train_input": {
+        "height": 15,
+        "width": 17,
+        "cells": 255
+      },
+      "smallest_train_input": {
+        "height": 10,
+        "width": 12,
+        "cells": 120
+      },
+      "train_input_count": 3
+    },
+    "332f06d7": {
+      "size_group": "small_medium",
+      "largest_train_input": {
+        "height": 16,
+        "width": 16,
+        "cells": 256
+      },
+      "smallest_train_input": {
+        "height": 10,
+        "width": 10,
+        "cells": 100
+      },
+      "train_input_count": 4
+    },
+    "409aa875": {
+      "size_group": "small_medium",
+      "largest_train_input": {
+        "height": 16,
+        "width": 16,
+        "cells": 256
+      },
+      "smallest_train_input": {
+        "height": 16,
+        "width": 16,
+        "cells": 256
+      },
+      "train_input_count": 3
+    },
+    "6e453dd6": {
+      "size_group": "small_medium",
+      "largest_train_input": {
+        "height": 16,
+        "width": 16,
+        "cells": 256
+      },
+      "smallest_train_input": {
+        "height": 16,
+        "width": 10,
+        "cells": 160
+      },
+      "train_input_count": 3
+    },
+    "7666fa5d": {
+      "size_group": "small_medium",
+      "largest_train_input": {
+        "height": 16,
+        "width": 16,
+        "cells": 256
+      },
+      "smallest_train_input": {
+        "height": 16,
+        "width": 16,
+        "cells": 256
+      },
+      "train_input_count": 2
+    },
+    "7b5033c1": {
+      "size_group": "small_medium",
+      "largest_train_input": {
+        "height": 16,
+        "width": 16,
+        "cells": 256
+      },
+      "smallest_train_input": {
+        "height": 16,
+        "width": 16,
+        "cells": 256
+      },
+      "train_input_count": 2
+    },
+    "d59b0160": {
+      "size_group": "small_medium",
+      "largest_train_input": {
+        "height": 16,
+        "width": 16,
+        "cells": 256
+      },
+      "smallest_train_input": {
+        "height": 16,
+        "width": 16,
+        "cells": 256
+      },
+      "train_input_count": 3
+    },
+    "e376de54": {
+      "size_group": "small_medium",
+      "largest_train_input": {
+        "height": 16,
+        "width": 16,
+        "cells": 256
+      },
+      "smallest_train_input": {
+        "height": 16,
+        "width": 16,
+        "cells": 256
+      },
+      "train_input_count": 3
+    },
+    "f931b4a8": {
+      "size_group": "small_medium",
+      "largest_train_input": {
+        "height": 16,
+        "width": 16,
+        "cells": 256
+      },
+      "smallest_train_input": {
+        "height": 8,
+        "width": 8,
+        "cells": 64
+      },
+      "train_input_count": 5
+    },
+    "9385bd28": {
+      "size_group": "small_medium",
+      "largest_train_input": {
+        "height": 15,
+        "width": 18,
+        "cells": 270
+      },
+      "smallest_train_input": {
+        "height": 10,
+        "width": 10,
+        "cells": 100
+      },
+      "train_input_count": 4
+    },
+    "9bbf930d": {
+      "size_group": "small_medium",
+      "largest_train_input": {
+        "height": 17,
+        "width": 16,
+        "cells": 272
+      },
+      "smallest_train_input": {
+        "height": 19,
+        "width": 14,
+        "cells": 266
+      },
+      "train_input_count": 3
+    },
+    "b9e38dc0": {
+      "size_group": "small_medium",
+      "largest_train_input": {
+        "height": 18,
+        "width": 16,
+        "cells": 288
+      },
+      "smallest_train_input": {
+        "height": 8,
+        "width": 15,
+        "cells": 120
+      },
+      "train_input_count": 3
+    },
+    "271d71e2": {
+      "size_group": "small_medium",
+      "largest_train_input": {
+        "height": 17,
+        "width": 17,
+        "cells": 289
+      },
+      "smallest_train_input": {
+        "height": 8,
+        "width": 8,
+        "cells": 64
+      },
+      "train_input_count": 3
+    },
+    "88bcf3b4": {
+      "size_group": "small_medium",
+      "largest_train_input": {
+        "height": 17,
+        "width": 17,
+        "cells": 289
+      },
+      "smallest_train_input": {
+        "height": 7,
+        "width": 7,
+        "cells": 49
+      },
+      "train_input_count": 5
+    },
+    "5545f144": {
+      "size_group": "small_medium",
+      "largest_train_input": {
+        "height": 12,
+        "width": 25,
+        "cells": 300
+      },
+      "smallest_train_input": {
+        "height": 8,
+        "width": 27,
+        "cells": 216
+      },
+      "train_input_count": 3
+    },
+    "71e489b6": {
+      "size_group": "small_medium",
+      "largest_train_input": {
+        "height": 19,
+        "width": 17,
+        "cells": 323
+      },
+      "smallest_train_input": {
+        "height": 16,
+        "width": 16,
+        "cells": 256
+      },
+      "train_input_count": 3
+    },
+    "4a21e3da": {
+      "size_group": "small_medium",
+      "largest_train_input": {
+        "height": 18,
+        "width": 18,
+        "cells": 324
+      },
+      "smallest_train_input": {
+        "height": 18,
+        "width": 18,
+        "cells": 324
+      },
+      "train_input_count": 3
+    },
+    "7ed72f31": {
+      "size_group": "small_medium",
+      "largest_train_input": {
+        "height": 18,
+        "width": 18,
+        "cells": 324
+      },
+      "smallest_train_input": {
+        "height": 18,
+        "width": 18,
+        "cells": 324
+      },
+      "train_input_count": 2
+    },
+    "c7f57c3e": {
+      "size_group": "small_medium",
+      "largest_train_input": {
+        "height": 18,
+        "width": 18,
+        "cells": 324
+      },
+      "smallest_train_input": {
+        "height": 18,
+        "width": 18,
+        "cells": 324
+      },
+      "train_input_count": 2
+    },
+    "53fb4810": {
+      "size_group": "small_medium",
+      "largest_train_input": {
+        "height": 24,
+        "width": 14,
+        "cells": 336
+      },
+      "smallest_train_input": {
+        "height": 23,
+        "width": 13,
+        "cells": 299
+      },
+      "train_input_count": 2
+    },
+    "cb2d8a2c": {
+      "size_group": "small_medium",
+      "largest_train_input": {
+        "height": 19,
+        "width": 19,
+        "cells": 361
+      },
+      "smallest_train_input": {
+        "height": 12,
+        "width": 19,
+        "cells": 228
+      },
+      "train_input_count": 4
+    },
+    "db0c5428": {
+      "size_group": "small_medium",
+      "largest_train_input": {
+        "height": 19,
+        "width": 19,
+        "cells": 361
+      },
+      "smallest_train_input": {
+        "height": 16,
+        "width": 16,
+        "cells": 256
+      },
+      "train_input_count": 3
+    },
+    "13e47133": {
+      "size_group": "medium",
+      "largest_train_input": {
+        "height": 20,
+        "width": 20,
+        "cells": 400
+      },
+      "smallest_train_input": {
+        "height": 10,
+        "width": 13,
+        "cells": 130
+      },
+      "train_input_count": 3
+    },
+    "142ca369": {
+      "size_group": "medium",
+      "largest_train_input": {
+        "height": 20,
+        "width": 20,
+        "cells": 400
+      },
+      "smallest_train_input": {
+        "height": 18,
+        "width": 18,
+        "cells": 324
+      },
+      "train_input_count": 3
+    },
+    "35ab12c3": {
+      "size_group": "medium",
+      "largest_train_input": {
+        "height": 20,
+        "width": 20,
+        "cells": 400
+      },
+      "smallest_train_input": {
+        "height": 15,
+        "width": 15,
+        "cells": 225
+      },
+      "train_input_count": 3
+    },
+    "5dbc8537": {
+      "size_group": "medium",
+      "largest_train_input": {
+        "height": 20,
+        "width": 20,
+        "cells": 400
+      },
+      "smallest_train_input": {
+        "height": 15,
+        "width": 15,
+        "cells": 225
+      },
+      "train_input_count": 2
+    },
+    "6ffbe589": {
+      "size_group": "medium",
+      "largest_train_input": {
+        "height": 20,
+        "width": 20,
+        "cells": 400
+      },
+      "smallest_train_input": {
+        "height": 20,
+        "width": 20,
+        "cells": 400
+      },
+      "train_input_count": 3
+    },
+    "7b0280bc": {
+      "size_group": "medium",
+      "largest_train_input": {
+        "height": 20,
+        "width": 20,
+        "cells": 400
+      },
+      "smallest_train_input": {
+        "height": 15,
+        "width": 15,
+        "cells": 225
+      },
+      "train_input_count": 3
+    },
+    "7b3084d4": {
+      "size_group": "medium",
+      "largest_train_input": {
+        "height": 20,
+        "width": 20,
+        "cells": 400
+      },
+      "smallest_train_input": {
+        "height": 20,
+        "width": 20,
+        "cells": 400
+      },
+      "train_input_count": 3
+    },
+    "800d221b": {
+      "size_group": "medium",
+      "largest_train_input": {
+        "height": 20,
+        "width": 20,
+        "cells": 400
+      },
+      "smallest_train_input": {
+        "height": 10,
+        "width": 10,
+        "cells": 100
+      },
+      "train_input_count": 3
+    },
+    "88e364bc": {
+      "size_group": "medium",
+      "largest_train_input": {
+        "height": 20,
+        "width": 20,
+        "cells": 400
+      },
+      "smallest_train_input": {
+        "height": 20,
+        "width": 20,
+        "cells": 400
+      },
+      "train_input_count": 3
+    },
+    "8f3a5a89": {
+      "size_group": "medium",
+      "largest_train_input": {
+        "height": 20,
+        "width": 20,
+        "cells": 400
+      },
+      "smallest_train_input": {
+        "height": 10,
+        "width": 10,
+        "cells": 100
+      },
+      "train_input_count": 3
+    },
+    "abc82100": {
+      "size_group": "medium",
+      "largest_train_input": {
+        "height": 20,
+        "width": 20,
+        "cells": 400
+      },
+      "smallest_train_input": {
+        "height": 5,
+        "width": 5,
+        "cells": 25
+      },
+      "train_input_count": 4
+    },
+    "de809cff": {
+      "size_group": "medium",
+      "largest_train_input": {
+        "height": 20,
+        "width": 20,
+        "cells": 400
+      },
+      "smallest_train_input": {
+        "height": 20,
+        "width": 20,
+        "cells": 400
+      },
+      "train_input_count": 2
+    },
+    "dfadab01": {
+      "size_group": "medium",
+      "largest_train_input": {
+        "height": 20,
+        "width": 20,
+        "cells": 400
+      },
+      "smallest_train_input": {
+        "height": 10,
+        "width": 10,
+        "cells": 100
+      },
+      "train_input_count": 4
+    },
+    "f560132c": {
+      "size_group": "medium",
+      "largest_train_input": {
+        "height": 20,
+        "width": 20,
+        "cells": 400
+      },
+      "smallest_train_input": {
+        "height": 20,
+        "width": 20,
+        "cells": 400
+      },
+      "train_input_count": 2
+    },
+    "8b9c3697": {
+      "size_group": "medium",
+      "largest_train_input": {
+        "height": 19,
+        "width": 22,
+        "cells": 418
+      },
+      "smallest_train_input": {
+        "height": 19,
+        "width": 22,
+        "cells": 418
+      },
+      "train_input_count": 3
+    },
+    "8b7bacbf": {
+      "size_group": "medium",
+      "largest_train_input": {
+        "height": 18,
+        "width": 24,
+        "cells": 432
+      },
+      "smallest_train_input": {
+        "height": 8,
+        "width": 8,
+        "cells": 64
+      },
+      "train_input_count": 4
+    },
+    "58f5dbd5": {
+      "size_group": "medium",
+      "largest_train_input": {
+        "height": 19,
+        "width": 23,
+        "cells": 437
+      },
+      "smallest_train_input": {
+        "height": 19,
+        "width": 19,
+        "cells": 361
+      },
+      "train_input_count": 3
+    },
+    "a25697e4": {
+      "size_group": "medium",
+      "largest_train_input": {
+        "height": 18,
+        "width": 25,
+        "cells": 450
+      },
+      "smallest_train_input": {
+        "height": 18,
+        "width": 25,
+        "cells": 450
+      },
+      "train_input_count": 3
+    },
+    "135a2760": {
+      "size_group": "medium",
+      "largest_train_input": {
+        "height": 21,
+        "width": 22,
+        "cells": 462
+      },
+      "smallest_train_input": {
+        "height": 5,
+        "width": 13,
+        "cells": 65
+      },
+      "train_input_count": 2
+    },
+    "38007db0": {
+      "size_group": "medium",
+      "largest_train_input": {
+        "height": 19,
+        "width": 25,
+        "cells": 475
+      },
+      "smallest_train_input": {
+        "height": 19,
+        "width": 19,
+        "cells": 361
+      },
+      "train_input_count": 2
+    },
+    "3a25b0d8": {
+      "size_group": "medium",
+      "largest_train_input": {
+        "height": 22,
+        "width": 22,
+        "cells": 484
+      },
+      "smallest_train_input": {
+        "height": 22,
+        "width": 22,
+        "cells": 484
+      },
+      "train_input_count": 2
+    },
+    "8e5c0c38": {
+      "size_group": "medium",
+      "largest_train_input": {
+        "height": 22,
+        "width": 22,
+        "cells": 484
+      },
+      "smallest_train_input": {
+        "height": 22,
+        "width": 22,
+        "cells": 484
+      },
+      "train_input_count": 2
+    },
+    "a395ee82": {
+      "size_group": "medium",
+      "largest_train_input": {
+        "height": 22,
+        "width": 22,
+        "cells": 484
+      },
+      "smallest_train_input": {
+        "height": 22,
+        "width": 22,
+        "cells": 484
+      },
+      "train_input_count": 3
+    },
+    "a47bf94d": {
+      "size_group": "medium",
+      "largest_train_input": {
+        "height": 22,
+        "width": 22,
+        "cells": 484
+      },
+      "smallest_train_input": {
+        "height": 19,
+        "width": 22,
+        "cells": 418
+      },
+      "train_input_count": 3
+    },
+    "b5ca7ac4": {
+      "size_group": "medium",
+      "largest_train_input": {
+        "height": 22,
+        "width": 22,
+        "cells": 484
+      },
+      "smallest_train_input": {
+        "height": 22,
+        "width": 22,
+        "cells": 484
+      },
+      "train_input_count": 3
+    },
+    "cbebaa4b": {
+      "size_group": "medium",
+      "largest_train_input": {
+        "height": 22,
+        "width": 22,
+        "cells": 484
+      },
+      "smallest_train_input": {
+        "height": 22,
+        "width": 22,
+        "cells": 484
+      },
+      "train_input_count": 2
+    },
+    "da515329": {
+      "size_group": "medium",
+      "largest_train_input": {
+        "height": 22,
+        "width": 22,
+        "cells": 484
+      },
+      "smallest_train_input": {
+        "height": 12,
+        "width": 12,
+        "cells": 144
+      },
+      "train_input_count": 3
+    },
+    "fc7cae8d": {
+      "size_group": "medium",
+      "largest_train_input": {
+        "height": 22,
+        "width": 22,
+        "cells": 484
+      },
+      "smallest_train_input": {
+        "height": 22,
+        "width": 22,
+        "cells": 484
+      },
+      "train_input_count": 3
+    },
+    "2c181942": {
+      "size_group": "medium",
+      "largest_train_input": {
+        "height": 20,
+        "width": 25,
+        "cells": 500
+      },
+      "smallest_train_input": {
+        "height": 18,
+        "width": 21,
+        "cells": 378
+      },
+      "train_input_count": 3
+    },
+    "2d0172a1": {
+      "size_group": "medium",
+      "largest_train_input": {
+        "height": 20,
+        "width": 25,
+        "cells": 500
+      },
+      "smallest_train_input": {
+        "height": 20,
+        "width": 16,
+        "cells": 320
+      },
+      "train_input_count": 4
+    },
+    "4c416de3": {
+      "size_group": "medium_large",
+      "largest_train_input": {
+        "height": 23,
+        "width": 23,
+        "cells": 529
+      },
+      "smallest_train_input": {
+        "height": 21,
+        "width": 21,
+        "cells": 441
+      },
+      "train_input_count": 3
+    },
+    "58490d8a": {
+      "size_group": "medium_large",
+      "largest_train_input": {
+        "height": 23,
+        "width": 23,
+        "cells": 529
+      },
+      "smallest_train_input": {
+        "height": 21,
+        "width": 20,
+        "cells": 420
+      },
+      "train_input_count": 3
+    },
+    "8f215267": {
+      "size_group": "medium_large",
+      "largest_train_input": {
+        "height": 23,
+        "width": 23,
+        "cells": 529
+      },
+      "smallest_train_input": {
+        "height": 20,
+        "width": 23,
+        "cells": 460
+      },
+      "train_input_count": 3
+    },
+    "c4d067a0": {
+      "size_group": "medium_large",
+      "largest_train_input": {
+        "height": 23,
+        "width": 23,
+        "cells": 529
+      },
+      "smallest_train_input": {
+        "height": 23,
+        "width": 23,
+        "cells": 529
+      },
+      "train_input_count": 3
+    },
+    "2ba387bc": {
+      "size_group": "medium_large",
+      "largest_train_input": {
+        "height": 23,
+        "width": 24,
+        "cells": 552
+      },
+      "smallest_train_input": {
+        "height": 20,
+        "width": 21,
+        "cells": 420
+      },
+      "train_input_count": 4
+    },
+    "edb79dae": {
+      "size_group": "medium_large",
+      "largest_train_input": {
+        "height": 23,
+        "width": 24,
+        "cells": 552
+      },
+      "smallest_train_input": {
+        "height": 22,
+        "width": 23,
+        "cells": 506
+      },
+      "train_input_count": 2
+    },
+    "898e7135": {
+      "size_group": "medium_large",
+      "largest_train_input": {
+        "height": 19,
+        "width": 30,
+        "cells": 570
+      },
+      "smallest_train_input": {
+        "height": 20,
+        "width": 15,
+        "cells": 300
+      },
+      "train_input_count": 2
+    },
+    "5961cc34": {
+      "size_group": "medium_large",
+      "largest_train_input": {
+        "height": 23,
+        "width": 25,
+        "cells": 575
+      },
+      "smallest_train_input": {
+        "height": 13,
+        "width": 15,
+        "cells": 195
+      },
+      "train_input_count": 4
+    },
+    "e12f9a14": {
+      "size_group": "medium_large",
+      "largest_train_input": {
+        "height": 24,
+        "width": 24,
+        "cells": 576
+      },
+      "smallest_train_input": {
+        "height": 8,
+        "width": 8,
+        "cells": 64
+      },
+      "train_input_count": 4
+    },
+    "a32d8b75": {
+      "size_group": "medium_large",
+      "largest_train_input": {
+        "height": 20,
+        "width": 30,
+        "cells": 600
+      },
+      "smallest_train_input": {
+        "height": 20,
+        "width": 30,
+        "cells": 600
+      },
+      "train_input_count": 3
+    },
+    "e87109e9": {
+      "size_group": "medium_large",
+      "largest_train_input": {
+        "height": 25,
+        "width": 24,
+        "cells": 600
+      },
+      "smallest_train_input": {
+        "height": 25,
+        "width": 24,
+        "cells": 600
+      },
+      "train_input_count": 3
+    },
+    "4e34c42c": {
+      "size_group": "medium_large",
+      "largest_train_input": {
+        "height": 30,
+        "width": 20,
+        "cells": 600
+      },
+      "smallest_train_input": {
+        "height": 23,
+        "width": 25,
+        "cells": 575
+      },
+      "train_input_count": 2
+    },
+    "89565ca0": {
+      "size_group": "medium_large",
+      "largest_train_input": {
+        "height": 22,
+        "width": 28,
+        "cells": 616
+      },
+      "smallest_train_input": {
+        "height": 22,
+        "width": 20,
+        "cells": 440
+      },
+      "train_input_count": 3
+    },
+    "195c6913": {
+      "size_group": "medium_large",
+      "largest_train_input": {
+        "height": 25,
+        "width": 25,
+        "cells": 625
+      },
+      "smallest_train_input": {
+        "height": 20,
+        "width": 20,
+        "cells": 400
+      },
+      "train_input_count": 3
+    },
+    "221dfab4": {
+      "size_group": "medium_large",
+      "largest_train_input": {
+        "height": 29,
+        "width": 22,
+        "cells": 638
+      },
+      "smallest_train_input": {
+        "height": 29,
+        "width": 22,
+        "cells": 638
+      },
+      "train_input_count": 2
+    },
+    "aa4ec2a5": {
+      "size_group": "medium_large",
+      "largest_train_input": {
+        "height": 28,
+        "width": 23,
+        "cells": 644
+      },
+      "smallest_train_input": {
+        "height": 20,
+        "width": 15,
+        "cells": 300
+      },
+      "train_input_count": 3
+    },
+    "d8e07eb2": {
+      "size_group": "medium_large",
+      "largest_train_input": {
+        "height": 30,
+        "width": 22,
+        "cells": 660
+      },
+      "smallest_train_input": {
+        "height": 30,
+        "width": 22,
+        "cells": 660
+      },
+      "train_input_count": 5
+    },
+    "7b80bb43": {
+      "size_group": "medium_large",
+      "largest_train_input": {
+        "height": 28,
+        "width": 24,
+        "cells": 672
+      },
+      "smallest_train_input": {
+        "height": 16,
+        "width": 30,
+        "cells": 480
+      },
+      "train_input_count": 2
+    },
+    "6e4f6532": {
+      "size_group": "medium_large",
+      "largest_train_input": {
+        "height": 26,
+        "width": 26,
+        "cells": 676
+      },
+      "smallest_train_input": {
+        "height": 13,
+        "width": 26,
+        "cells": 338
+      },
+      "train_input_count": 2
+    },
+    "80a900e0": {
+      "size_group": "large",
+      "largest_train_input": {
+        "height": 24,
+        "width": 30,
+        "cells": 720
+      },
+      "smallest_train_input": {
+        "height": 20,
+        "width": 14,
+        "cells": 280
+      },
+      "train_input_count": 2
+    },
+    "7c66cb00": {
+      "size_group": "large",
+      "largest_train_input": {
+        "height": 30,
+        "width": 24,
+        "cells": 720
+      },
+      "smallest_train_input": {
+        "height": 30,
+        "width": 24,
+        "cells": 720
+      },
+      "train_input_count": 3
+    },
+    "3e6067c3": {
+      "size_group": "large",
+      "largest_train_input": {
+        "height": 27,
+        "width": 27,
+        "cells": 729
+      },
+      "smallest_train_input": {
+        "height": 13,
+        "width": 20,
+        "cells": 260
+      },
+      "train_input_count": 3
+    },
+    "b10624e5": {
+      "size_group": "large",
+      "largest_train_input": {
+        "height": 27,
+        "width": 27,
+        "cells": 729
+      },
+      "smallest_train_input": {
+        "height": 27,
+        "width": 27,
+        "cells": 729
+      },
+      "train_input_count": 2
+    },
+    "64efde09": {
+      "size_group": "large",
+      "largest_train_input": {
+        "height": 26,
+        "width": 29,
+        "cells": 754
+      },
+      "smallest_train_input": {
+        "height": 21,
+        "width": 27,
+        "cells": 567
+      },
+      "train_input_count": 2
+    },
+    "b99e7126": {
+      "size_group": "very_large",
+      "largest_train_input": {
+        "height": 29,
+        "width": 29,
+        "cells": 841
+      },
+      "smallest_train_input": {
+        "height": 29,
+        "width": 29,
+        "cells": 841
+      },
+      "train_input_count": 3
+    },
+    "0934a4d8": {
+      "size_group": "wtf",
+      "largest_train_input": {
+        "height": 30,
+        "width": 30,
+        "cells": 900
+      },
+      "smallest_train_input": {
+        "height": 30,
+        "width": 30,
+        "cells": 900
+      },
+      "train_input_count": 4
+    },
+    "16b78196": {
+      "size_group": "wtf",
+      "largest_train_input": {
+        "height": 30,
+        "width": 30,
+        "cells": 900
+      },
+      "smallest_train_input": {
+        "height": 30,
+        "width": 30,
+        "cells": 900
+      },
+      "train_input_count": 2
+    },
+    "20a9e565": {
+      "size_group": "wtf",
+      "largest_train_input": {
+        "height": 30,
+        "width": 30,
+        "cells": 900
+      },
+      "smallest_train_input": {
+        "height": 29,
+        "width": 29,
+        "cells": 841
+      },
+      "train_input_count": 3
+    },
+    "4c7dc4dd": {
+      "size_group": "wtf",
+      "largest_train_input": {
+        "height": 30,
+        "width": 30,
+        "cells": 900
+      },
+      "smallest_train_input": {
+        "height": 30,
+        "width": 30,
+        "cells": 900
+      },
+      "train_input_count": 2
+    },
+    "62593bfd": {
+      "size_group": "wtf",
+      "largest_train_input": {
+        "height": 30,
+        "width": 30,
+        "cells": 900
+      },
+      "smallest_train_input": {
+        "height": 28,
+        "width": 19,
+        "cells": 532
+      },
+      "train_input_count": 2
+    },
+    "67e490f4": {
+      "size_group": "wtf",
+      "largest_train_input": {
+        "height": 30,
+        "width": 30,
+        "cells": 900
+      },
+      "smallest_train_input": {
+        "height": 30,
+        "width": 30,
+        "cells": 900
+      },
+      "train_input_count": 2
+    },
+    "8698868d": {
+      "size_group": "wtf",
+      "largest_train_input": {
+        "height": 30,
+        "width": 30,
+        "cells": 900
+      },
+      "smallest_train_input": {
+        "height": 20,
+        "width": 15,
+        "cells": 300
+      },
+      "train_input_count": 2
+    },
+    "981571dc": {
+      "size_group": "wtf",
+      "largest_train_input": {
+        "height": 30,
+        "width": 30,
+        "cells": 900
+      },
+      "smallest_train_input": {
+        "height": 30,
+        "width": 30,
+        "cells": 900
+      },
+      "train_input_count": 4
+    },
+    "9aaea919": {
+      "size_group": "wtf",
+      "largest_train_input": {
+        "height": 30,
+        "width": 30,
+        "cells": 900
+      },
+      "smallest_train_input": {
+        "height": 30,
+        "width": 30,
+        "cells": 900
+      },
+      "train_input_count": 3
+    },
+    "a251c730": {
+      "size_group": "wtf",
+      "largest_train_input": {
+        "height": 30,
+        "width": 30,
+        "cells": 900
+      },
+      "smallest_train_input": {
+        "height": 30,
+        "width": 30,
+        "cells": 900
+      },
+      "train_input_count": 2
+    },
+    "a6f40cea": {
+      "size_group": "wtf",
+      "largest_train_input": {
+        "height": 30,
+        "width": 30,
+        "cells": 900
+      },
+      "smallest_train_input": {
+        "height": 20,
+        "width": 20,
+        "cells": 400
+      },
+      "train_input_count": 3
+    },
+    "e3721c99": {
+      "size_group": "wtf",
+      "largest_train_input": {
+        "height": 30,
+        "width": 30,
+        "cells": 900
+      },
+      "smallest_train_input": {
+        "height": 30,
+        "width": 30,
+        "cells": 900
+      },
+      "train_input_count": 2
+    }
+  }
+}

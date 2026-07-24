@@ -1,0 +1,481 @@
+{
+  "20270e3b": {
+    "source_group": "small_medium.json",
+    "result_group": "mixed__height_shrinks__shorter_and_wider__width_shrinks",
+    "train_pair_relationships": [
+      "width_shrinks",
+      "width_shrinks",
+      "height_shrinks",
+      "shorter_and_wider"
+    ]
+  },
+  "28a6681f": {
+    "source_group": "small_medium.json",
+    "result_group": "same_size",
+    "train_pair_relationships": [
+      "same_size",
+      "same_size",
+      "same_size"
+    ]
+  },
+  "d35bdbdc": {
+    "source_group": "small_medium.json",
+    "result_group": "same_size",
+    "train_pair_relationships": [
+      "same_size",
+      "same_size",
+      "same_size"
+    ]
+  },
+  "78332cb0": {
+    "source_group": "small_medium.json",
+    "result_group": "mixed__shorter_and_wider__taller_and_narrower",
+    "train_pair_relationships": [
+      "taller_and_narrower",
+      "shorter_and_wider",
+      "taller_and_narrower"
+    ]
+  },
+  "dd6b8c4b": {
+    "source_group": "small_medium.json",
+    "result_group": "same_size",
+    "train_pair_relationships": [
+      "same_size",
+      "same_size",
+      "same_size"
+    ]
+  },
+  "3dc255db": {
+    "source_group": "small_medium.json",
+    "result_group": "same_size",
+    "train_pair_relationships": [
+      "same_size",
+      "same_size",
+      "same_size"
+    ]
+  },
+  "b6f77b65": {
+    "source_group": "small_medium.json",
+    "result_group": "same_size",
+    "train_pair_relationships": [
+      "same_size",
+      "same_size",
+      "same_size",
+      "same_size",
+      "same_size"
+    ]
+  },
+  "dbff022c": {
+    "source_group": "small_medium.json",
+    "result_group": "same_size",
+    "train_pair_relationships": [
+      "same_size",
+      "same_size",
+      "same_size"
+    ]
+  },
+  "faa9f03d": {
+    "source_group": "small_medium.json",
+    "result_group": "same_size",
+    "train_pair_relationships": [
+      "same_size",
+      "same_size",
+      "same_size"
+    ]
+  },
+  "97d7923e": {
+    "source_group": "small_medium.json",
+    "result_group": "same_size",
+    "train_pair_relationships": [
+      "same_size",
+      "same_size",
+      "same_size"
+    ]
+  },
+  "269e22fb": {
+    "source_group": "small_medium.json",
+    "result_group": "both_dimensions_grow",
+    "train_pair_relationships": [
+      "both_dimensions_grow",
+      "both_dimensions_grow",
+      "both_dimensions_grow",
+      "both_dimensions_grow",
+      "both_dimensions_grow"
+    ]
+  },
+  "4c3d4a41": {
+    "source_group": "small_medium.json",
+    "result_group": "same_size",
+    "train_pair_relationships": [
+      "same_size",
+      "same_size"
+    ]
+  },
+  "b0039139": {
+    "source_group": "small_medium.json",
+    "result_group": "both_dimensions_shrink",
+    "train_pair_relationships": [
+      "both_dimensions_shrink",
+      "both_dimensions_shrink",
+      "both_dimensions_shrink",
+      "both_dimensions_shrink"
+    ]
+  },
+  "e8686506": {
+    "source_group": "small_medium.json",
+    "result_group": "both_dimensions_shrink",
+    "train_pair_relationships": [
+      "both_dimensions_shrink",
+      "both_dimensions_shrink"
+    ]
+  },
+  "7491f3cf": {
+    "source_group": "small_medium.json",
+    "result_group": "same_size",
+    "train_pair_relationships": [
+      "same_size",
+      "same_size",
+      "same_size",
+      "same_size"
+    ]
+  },
+  "16de56c4": {
+    "source_group": "small_medium.json",
+    "result_group": "same_size",
+    "train_pair_relationships": [
+      "same_size",
+      "same_size",
+      "same_size"
+    ]
+  },
+  "21897d95": {
+    "source_group": "small_medium.json",
+    "result_group": "mixed__same_size__shorter_and_wider",
+    "train_pair_relationships": [
+      "shorter_and_wider",
+      "same_size",
+      "shorter_and_wider",
+      "same_size"
+    ]
+  },
+  "1ae2feb7": {
+    "source_group": "small_medium.json",
+    "result_group": "same_size",
+    "train_pair_relationships": [
+      "same_size",
+      "same_size",
+      "same_size"
+    ]
+  },
+  "45a5af55": {
+    "source_group": "small_medium.json",
+    "result_group": "both_dimensions_grow",
+    "train_pair_relationships": [
+      "both_dimensions_grow",
+      "both_dimensions_grow"
+    ]
+  },
+  "bf45cf4b": {
+    "source_group": "small_medium.json",
+    "result_group": "mixed__height_shrinks__same_size__width_shrinks",
+    "train_pair_relationships": [
+      "height_shrinks",
+      "width_shrinks",
+      "same_size"
+    ]
+  },
+  "247ef758": {
+    "source_group": "small_medium.json",
+    "result_group": "same_size",
+    "train_pair_relationships": [
+      "same_size",
+      "same_size",
+      "same_size"
+    ]
+  },
+  "291dc1e1": {
+    "source_group": "small_medium.json",
+    "result_group": "mixed__both_dimensions_shrink__taller_and_narrower__width_shrinks",
+    "train_pair_relationships": [
+      "both_dimensions_shrink",
+      "width_shrinks",
+      "taller_and_narrower",
+      "taller_and_narrower"
+    ]
+  },
+  "136b0064": {
+    "source_group": "small_medium.json",
+    "result_group": "width_shrinks",
+    "train_pair_relationships": [
+      "width_shrinks",
+      "width_shrinks",
+      "width_shrinks"
+    ]
+  },
+  "31f7f899": {
+    "source_group": "small_medium.json",
+    "result_group": "same_size",
+    "train_pair_relationships": [
+      "same_size",
+      "same_size",
+      "same_size"
+    ]
+  },
+  "65b59efc": {
+    "source_group": "small_medium.json",
+    "result_group": "mixed__both_dimensions_grow__both_dimensions_shrink",
+    "train_pair_relationships": [
+      "both_dimensions_shrink",
+      "both_dimensions_shrink",
+      "both_dimensions_grow"
+    ]
+  },
+  "446ef5d2": {
+    "source_group": "small_medium.json",
+    "result_group": "same_size",
+    "train_pair_relationships": [
+      "same_size",
+      "same_size"
+    ]
+  },
+  "36a08778": {
+    "source_group": "small_medium.json",
+    "result_group": "same_size",
+    "train_pair_relationships": [
+      "same_size",
+      "same_size",
+      "same_size",
+      "same_size",
+      "same_size",
+      "same_size"
+    ]
+  },
+  "db695cfb": {
+    "source_group": "small_medium.json",
+    "result_group": "same_size",
+    "train_pair_relationships": [
+      "same_size",
+      "same_size",
+      "same_size",
+      "same_size",
+      "same_size"
+    ]
+  },
+  "581f7754": {
+    "source_group": "small_medium.json",
+    "result_group": "same_size",
+    "train_pair_relationships": [
+      "same_size",
+      "same_size",
+      "same_size"
+    ]
+  },
+  "2b83f449": {
+    "source_group": "small_medium.json",
+    "result_group": "same_size",
+    "train_pair_relationships": [
+      "same_size",
+      "same_size"
+    ]
+  },
+  "1818057f": {
+    "source_group": "small_medium.json",
+    "result_group": "same_size",
+    "train_pair_relationships": [
+      "same_size",
+      "same_size",
+      "same_size"
+    ]
+  },
+  "332f06d7": {
+    "source_group": "small_medium.json",
+    "result_group": "same_size",
+    "train_pair_relationships": [
+      "same_size",
+      "same_size",
+      "same_size",
+      "same_size"
+    ]
+  },
+  "409aa875": {
+    "source_group": "small_medium.json",
+    "result_group": "same_size",
+    "train_pair_relationships": [
+      "same_size",
+      "same_size",
+      "same_size"
+    ]
+  },
+  "6e453dd6": {
+    "source_group": "small_medium.json",
+    "result_group": "same_size",
+    "train_pair_relationships": [
+      "same_size",
+      "same_size",
+      "same_size"
+    ]
+  },
+  "7666fa5d": {
+    "source_group": "small_medium.json",
+    "result_group": "same_size",
+    "train_pair_relationships": [
+      "same_size",
+      "same_size"
+    ]
+  },
+  "7b5033c1": {
+    "source_group": "small_medium.json",
+    "result_group": "taller_and_narrower",
+    "train_pair_relationships": [
+      "taller_and_narrower",
+      "taller_and_narrower"
+    ]
+  },
+  "d59b0160": {
+    "source_group": "small_medium.json",
+    "result_group": "same_size",
+    "train_pair_relationships": [
+      "same_size",
+      "same_size",
+      "same_size"
+    ]
+  },
+  "e376de54": {
+    "source_group": "small_medium.json",
+    "result_group": "same_size",
+    "train_pair_relationships": [
+      "same_size",
+      "same_size",
+      "same_size"
+    ]
+  },
+  "f931b4a8": {
+    "source_group": "small_medium.json",
+    "result_group": "mixed__both_dimensions_grow__both_dimensions_shrink__taller_and_narrower",
+    "train_pair_relationships": [
+      "taller_and_narrower",
+      "both_dimensions_grow",
+      "both_dimensions_shrink",
+      "both_dimensions_shrink",
+      "both_dimensions_shrink"
+    ]
+  },
+  "9385bd28": {
+    "source_group": "small_medium.json",
+    "result_group": "same_size",
+    "train_pair_relationships": [
+      "same_size",
+      "same_size",
+      "same_size",
+      "same_size"
+    ]
+  },
+  "9bbf930d": {
+    "source_group": "small_medium.json",
+    "result_group": "same_size",
+    "train_pair_relationships": [
+      "same_size",
+      "same_size",
+      "same_size"
+    ]
+  },
+  "b9e38dc0": {
+    "source_group": "small_medium.json",
+    "result_group": "same_size",
+    "train_pair_relationships": [
+      "same_size",
+      "same_size",
+      "same_size"
+    ]
+  },
+  "271d71e2": {
+    "source_group": "small_medium.json",
+    "result_group": "same_size",
+    "train_pair_relationships": [
+      "same_size",
+      "same_size",
+      "same_size"
+    ]
+  },
+  "88bcf3b4": {
+    "source_group": "small_medium.json",
+    "result_group": "same_size",
+    "train_pair_relationships": [
+      "same_size",
+      "same_size",
+      "same_size",
+      "same_size",
+      "same_size"
+    ]
+  },
+  "5545f144": {
+    "source_group": "small_medium.json",
+    "result_group": "width_shrinks",
+    "train_pair_relationships": [
+      "width_shrinks",
+      "width_shrinks",
+      "width_shrinks"
+    ]
+  },
+  "71e489b6": {
+    "source_group": "small_medium.json",
+    "result_group": "same_size",
+    "train_pair_relationships": [
+      "same_size",
+      "same_size",
+      "same_size"
+    ]
+  },
+  "4a21e3da": {
+    "source_group": "small_medium.json",
+    "result_group": "same_size",
+    "train_pair_relationships": [
+      "same_size",
+      "same_size",
+      "same_size"
+    ]
+  },
+  "7ed72f31": {
+    "source_group": "small_medium.json",
+    "result_group": "same_size",
+    "train_pair_relationships": [
+      "same_size",
+      "same_size"
+    ]
+  },
+  "c7f57c3e": {
+    "source_group": "small_medium.json",
+    "result_group": "same_size",
+    "train_pair_relationships": [
+      "same_size",
+      "same_size"
+    ]
+  },
+  "53fb4810": {
+    "source_group": "small_medium.json",
+    "result_group": "same_size",
+    "train_pair_relationships": [
+      "same_size",
+      "same_size"
+    ]
+  },
+  "cb2d8a2c": {
+    "source_group": "small_medium.json",
+    "result_group": "same_size",
+    "train_pair_relationships": [
+      "same_size",
+      "same_size",
+      "same_size",
+      "same_size"
+    ]
+  },
+  "db0c5428": {
+    "source_group": "small_medium.json",
+    "result_group": "same_size",
+    "train_pair_relationships": [
+      "same_size",
+      "same_size",
+      "same_size"
+    ]
+  }
+}

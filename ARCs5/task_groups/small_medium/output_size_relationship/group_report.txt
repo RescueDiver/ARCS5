@@ -1,0 +1,106 @@
+ARCs5 OUTPUT SIZE RELATIONSHIP GROUPING
+========================================================================
+
+Input group : C:\Users\johne\Desktop\ARCs4\ARCs5\task_groups\small_medium.json
+Total tasks : 52
+New groups : 12
+
+BOTH_DIMENSIONS_GROW
+------------------------------------------------------------------------
+Task count: 2
+  1. 269e22fb     both_dimensions_grow, both_dimensions_grow, both_dimensions_grow, both_dimensions_grow, both_dimensions_grow
+  2. 45a5af55     both_dimensions_grow, both_dimensions_grow
+
+BOTH_DIMENSIONS_SHRINK
+------------------------------------------------------------------------
+Task count: 2
+  1. b0039139     both_dimensions_shrink, both_dimensions_shrink, both_dimensions_shrink, both_dimensions_shrink
+  2. e8686506     both_dimensions_shrink, both_dimensions_shrink
+
+MIXED__BOTH_DIMENSIONS_GROW__BOTH_DIMENSIONS_SHRINK
+------------------------------------------------------------------------
+Task count: 1
+  1. 65b59efc     both_dimensions_shrink, both_dimensions_shrink, both_dimensions_grow
+
+MIXED__BOTH_DIMENSIONS_GROW__BOTH_DIMENSIONS_SHRINK__TALLER_AND_NARROWER
+------------------------------------------------------------------------
+Task count: 1
+  1. f931b4a8     taller_and_narrower, both_dimensions_grow, both_dimensions_shrink, both_dimensions_shrink, both_dimensions_shrink
+
+MIXED__BOTH_DIMENSIONS_SHRINK__TALLER_AND_NARROWER__WIDTH_SHRINKS
+------------------------------------------------------------------------
+Task count: 1
+  1. 291dc1e1     both_dimensions_shrink, width_shrinks, taller_and_narrower, taller_and_narrower
+
+MIXED__HEIGHT_SHRINKS__SAME_SIZE__WIDTH_SHRINKS
+------------------------------------------------------------------------
+Task count: 1
+  1. bf45cf4b     height_shrinks, width_shrinks, same_size
+
+MIXED__HEIGHT_SHRINKS__SHORTER_AND_WIDER__WIDTH_SHRINKS
+------------------------------------------------------------------------
+Task count: 1
+  1. 20270e3b     width_shrinks, width_shrinks, height_shrinks, shorter_and_wider
+
+MIXED__SAME_SIZE__SHORTER_AND_WIDER
+------------------------------------------------------------------------
+Task count: 1
+  1. 21897d95     shorter_and_wider, same_size, shorter_and_wider, same_size
+
+MIXED__SHORTER_AND_WIDER__TALLER_AND_NARROWER
+------------------------------------------------------------------------
+Task count: 1
+  1. 78332cb0     taller_and_narrower, shorter_and_wider, taller_and_narrower
+
+SAME_SIZE
+------------------------------------------------------------------------
+Task count: 38
+  1. 16de56c4     same_size, same_size, same_size
+  2. 1818057f     same_size, same_size, same_size
+  3. 1ae2feb7     same_size, same_size, same_size
+  4. 247ef758     same_size, same_size, same_size
+  5. 271d71e2     same_size, same_size, same_size
+  6. 28a6681f     same_size, same_size, same_size
+  7. 2b83f449     same_size, same_size
+  8. 31f7f899     same_size, same_size, same_size
+  9. 332f06d7     same_size, same_size, same_size, same_size
+ 10. 36a08778     same_size, same_size, same_size, same_size, same_size, same_size
+ 11. 3dc255db     same_size, same_size, same_size
+ 12. 409aa875     same_size, same_size, same_size
+ 13. 446ef5d2     same_size, same_size
+ 14. 4a21e3da     same_size, same_size, same_size
+ 15. 4c3d4a41     same_size, same_size
+ 16. 53fb4810     same_size, same_size
+ 17. 581f7754     same_size, same_size, same_size
+ 18. 6e453dd6     same_size, same_size, same_size
+ 19. 71e489b6     same_size, same_size, same_size
+ 20. 7491f3cf     same_size, same_size, same_size, same_size
+ 21. 7666fa5d     same_size, same_size
+ 22. 7ed72f31     same_size, same_size
+ 23. 88bcf3b4     same_size, same_size, same_size, same_size, same_size
+ 24. 9385bd28     same_size, same_size, same_size, same_size
+ 25. 97d7923e     same_size, same_size, same_size
+ 26. 9bbf930d     same_size, same_size, same_size
+ 27. b6f77b65     same_size, same_size, same_size, same_size, same_size
+ 28. b9e38dc0     same_size, same_size, same_size
+ 29. c7f57c3e     same_size, same_size
+ 30. cb2d8a2c     same_size, same_size, same_size, same_size
+ 31. d35bdbdc     same_size, same_size, same_size
+ 32. d59b0160     same_size, same_size, same_size
+ 33. db0c5428     same_size, same_size, same_size
+ 34. db695cfb     same_size, same_size, same_size, same_size, same_size
+ 35. dbff022c     same_size, same_size, same_size
+ 36. dd6b8c4b     same_size, same_size, same_size
+ 37. e376de54     same_size, same_size, same_size
+ 38. faa9f03d     same_size, same_size, same_size
+
+TALLER_AND_NARROWER
+------------------------------------------------------------------------
+Task count: 1
+  1. 7b5033c1     taller_and_narrower, taller_and_narrower
+
+WIDTH_SHRINKS
+------------------------------------------------------------------------
+Task count: 2
+  1. 136b0064     width_shrinks, width_shrinks, width_shrinks
+  2. 5545f144     width_shrinks, width_shrinks, width_shrinks

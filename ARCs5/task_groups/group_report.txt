@@ -1,0 +1,173 @@
+ARCs5 FIRST-LOOK SIZE GROUPS
+========================================================================
+
+TOTAL TASKS: 120
+
+SMALL
+------------------------------------------------------------------------
+Task count: 1
+Cell range: 36 to 36
+
+  1. eee78d87           6x6    36 cells
+
+
+SMALL MEDIUM
+------------------------------------------------------------------------
+Task count: 52
+Cell range: 91 to 361
+
+  1. 20270e3b          7x13    91 cells
+  2. 28a6681f         10x10   100 cells
+  3. d35bdbdc         10x10   100 cells
+  4. 78332cb0         11x11   121 cells
+  5. dd6b8c4b         11x11   121 cells
+  6. 3dc255db         12x12   144 cells
+  7. b6f77b65         12x12   144 cells
+  8. dbff022c         12x12   144 cells
+  9. faa9f03d         12x12   144 cells
+ 10. 97d7923e         10x15   150 cells
+ 11. 269e22fb         13x12   156 cells
+ 12. 4c3d4a41          8x20   160 cells
+ 13. b0039139          6x27   162 cells
+ 14. e8686506         13x13   169 cells
+ 15. 7491f3cf          7x25   175 cells
+ 16. 16de56c4          9x20   180 cells
+ 17. 21897d95         16x12   192 cells
+ 18. 1ae2feb7         13x15   195 cells
+ 19. 45a5af55         14x14   196 cells
+ 20. bf45cf4b         12x17   204 cells
+ 21. 247ef758         12x18   216 cells
+ 22. 291dc1e1          8x28   224 cells
+ 23. 136b0064         15x15   225 cells
+ 24. 31f7f899         15x15   225 cells
+ 25. 65b59efc         14x17   238 cells
+ 26. 446ef5d2         12x20   240 cells
+ 27. 36a08778         15x16   240 cells
+ 28. db695cfb         15x16   240 cells
+ 29. 581f7754         22x11   242 cells
+ 30. 2b83f449         13x19   247 cells
+ 31. 1818057f         15x17   255 cells
+ 32. 332f06d7         16x16   256 cells
+ 33. 409aa875         16x16   256 cells
+ 34. 6e453dd6         16x16   256 cells
+ 35. 7666fa5d         16x16   256 cells
+ 36. 7b5033c1         16x16   256 cells
+ 37. d59b0160         16x16   256 cells
+ 38. e376de54         16x16   256 cells
+ 39. f931b4a8         16x16   256 cells
+ 40. 9385bd28         15x18   270 cells
+ 41. 9bbf930d         17x16   272 cells
+ 42. b9e38dc0         18x16   288 cells
+ 43. 271d71e2         17x17   289 cells
+ 44. 88bcf3b4         17x17   289 cells
+ 45. 5545f144         12x25   300 cells
+ 46. 71e489b6         19x17   323 cells
+ 47. 4a21e3da         18x18   324 cells
+ 48. 7ed72f31         18x18   324 cells
+ 49. c7f57c3e         18x18   324 cells
+ 50. 53fb4810         24x14   336 cells
+ 51. cb2d8a2c         19x19   361 cells
+ 52. db0c5428         19x19   361 cells
+
+
+MEDIUM
+------------------------------------------------------------------------
+Task count: 30
+Cell range: 400 to 500
+
+  1. 13e47133         20x20   400 cells
+  2. 142ca369         20x20   400 cells
+  3. 35ab12c3         20x20   400 cells
+  4. 5dbc8537         20x20   400 cells
+  5. 6ffbe589         20x20   400 cells
+  6. 7b0280bc         20x20   400 cells
+  7. 7b3084d4         20x20   400 cells
+  8. 800d221b         20x20   400 cells
+  9. 88e364bc         20x20   400 cells
+ 10. 8f3a5a89         20x20   400 cells
+ 11. abc82100         20x20   400 cells
+ 12. de809cff         20x20   400 cells
+ 13. dfadab01         20x20   400 cells
+ 14. f560132c         20x20   400 cells
+ 15. 8b9c3697         19x22   418 cells
+ 16. 8b7bacbf         18x24   432 cells
+ 17. 58f5dbd5         19x23   437 cells
+ 18. a25697e4         18x25   450 cells
+ 19. 135a2760         21x22   462 cells
+ 20. 38007db0         19x25   475 cells
+ 21. 3a25b0d8         22x22   484 cells
+ 22. 8e5c0c38         22x22   484 cells
+ 23. a395ee82         22x22   484 cells
+ 24. a47bf94d         22x22   484 cells
+ 25. b5ca7ac4         22x22   484 cells
+ 26. cbebaa4b         22x22   484 cells
+ 27. da515329         22x22   484 cells
+ 28. fc7cae8d         22x22   484 cells
+ 29. 2c181942         20x25   500 cells
+ 30. 2d0172a1         20x25   500 cells
+
+
+MEDIUM LARGE
+------------------------------------------------------------------------
+Task count: 19
+Cell range: 529 to 676
+
+  1. 4c416de3         23x23   529 cells
+  2. 58490d8a         23x23   529 cells
+  3. 8f215267         23x23   529 cells
+  4. c4d067a0         23x23   529 cells
+  5. 2ba387bc         23x24   552 cells
+  6. edb79dae         23x24   552 cells
+  7. 898e7135         19x30   570 cells
+  8. 5961cc34         23x25   575 cells
+  9. e12f9a14         24x24   576 cells
+ 10. a32d8b75         20x30   600 cells
+ 11. e87109e9         25x24   600 cells
+ 12. 4e34c42c         30x20   600 cells
+ 13. 89565ca0         22x28   616 cells
+ 14. 195c6913         25x25   625 cells
+ 15. 221dfab4         29x22   638 cells
+ 16. aa4ec2a5         28x23   644 cells
+ 17. d8e07eb2         30x22   660 cells
+ 18. 7b80bb43         28x24   672 cells
+ 19. 6e4f6532         26x26   676 cells
+
+
+LARGE
+------------------------------------------------------------------------
+Task count: 5
+Cell range: 720 to 754
+
+  1. 80a900e0         24x30   720 cells
+  2. 7c66cb00         30x24   720 cells
+  3. 3e6067c3         27x27   729 cells
+  4. b10624e5         27x27   729 cells
+  5. 64efde09         26x29   754 cells
+
+
+VERY LARGE
+------------------------------------------------------------------------
+Task count: 1
+Cell range: 841 to 841
+
+  1. b99e7126         29x29   841 cells
+
+
+WTF
+------------------------------------------------------------------------
+Task count: 12
+Cell range: 900 to 900
+
+  1. 0934a4d8         30x30   900 cells
+  2. 16b78196         30x30   900 cells
+  3. 20a9e565         30x30   900 cells
+  4. 4c7dc4dd         30x30   900 cells
+  5. 62593bfd         30x30   900 cells
+  6. 67e490f4         30x30   900 cells
+  7. 8698868d         30x30   900 cells
+  8. 981571dc         30x30   900 cells
+  9. 9aaea919         30x30   900 cells
+ 10. a251c730         30x30   900 cells
+ 11. a6f40cea         30x30   900 cells
+ 12. e3721c99         30x30   900 cells
+
