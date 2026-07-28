@@ -1,0 +1,324 @@
+ARCs5 COMPLETE FIRST-LOOK GROUPING
+========================================================================================
+
+TOTAL TASKS: 120
+
+SIZE
+----------------------------------------------------------------------------------------
+small_medium                                      52 tasks
+medium                                            30 tasks
+medium_large                                      19 tasks
+wtf                                               12 tasks
+large                                              5 tasks
+small                                              1 tasks
+very_large                                         1 tasks
+
+SCENE
+----------------------------------------------------------------------------------------
+object                                            91 tasks
+mixed                                             22 tasks
+pattern                                            7 tasks
+
+BACKGROUND
+----------------------------------------------------------------------------------------
+clear                                             55 tasks
+multiple                                          35 tasks
+possible                                          20 tasks
+uncertain                                          6 tasks
+none                                               4 tasks
+
+OUTPUT SIZE
+----------------------------------------------------------------------------------------
+same_size                                         81 tasks
+both_dimensions_shrink                            19 tasks
+width_shrinks                                      4 tasks
+both_dimensions_grow                               3 tasks
+height_shrinks                                     1 tasks
+mixed__both_dimensions_grow__both_dimensions_shrink   1 tasks
+mixed__both_dimensions_grow__both_dimensions_shrink__taller_and_narrower   1 tasks
+mixed__both_dimensions_shrink__height_shrinks__width_shrinks   1 tasks
+mixed__both_dimensions_shrink__shorter_and_wider   1 tasks
+mixed__both_dimensions_shrink__taller_and_narrower   1 tasks
+mixed__both_dimensions_shrink__taller_and_narrower__width_shrinks   1 tasks
+mixed__height_shrinks__same_size__width_shrinks    1 tasks
+mixed__height_shrinks__shorter_and_wider__width_shrinks   1 tasks
+mixed__height_shrinks__width_shrinks               1 tasks
+mixed__same_size__shorter_and_wider                1 tasks
+mixed__shorter_and_wider__taller_and_narrower      1 tasks
+taller_and_narrower                                1 tasks
+
+STRUCTURE
+----------------------------------------------------------------------------------------
+repeated_columns                                 120 tasks
+repeated_local_patches                           120 tasks
+repeated_rows                                    120 tasks
+full_horizontal_lines                            107 tasks
+full_vertical_lines                              104 tasks
+many_color_components                            100 tasks
+object_scene                                      91 tasks
+same_size_output                                  81 tasks
+diagonal_connectivity_changes_objects             77 tasks
+clear_background                                  55 tasks
+many_colors                                       43 tasks
+multiple_background_candidates                    35 tasks
+few_colors                                        33 tasks
+output_shrinks                                    31 tasks
+mixed_scene                                       22 tasks
+pattern_scene                                      7 tasks
+output_grows                                       5 tasks
+no_clear_background                                4 tasks
+mixed_output_sizes                                 2 tasks
+
+MEASUREMENT
+----------------------------------------------------------------------------------------
+rectangular_grids                                120 tasks
+variable_train_input_size                         74 tasks
+variable_train_color_count                        66 tasks
+square_inputs                                     58 tasks
+fixed_train_color_count                           54 tasks
+fixed_train_input_size                            46 tasks
+wide_inputs                                       13 tasks
+tall_inputs                                        6 tasks
+
+TASK CLASSIFICATIONS
+----------------------------------------------------------------------------------------
+0934a4d8 | size=wtf            | scene=pattern   | background=none      | output=both_dimensions_shrink
+             structure: diagonal_connectivity_changes_objects, many_color_components, many_colors, no_clear_background, output_shrinks, pattern_scene, repeated_columns, repeated_local_patches, repeated_rows
+135a2760 | size=medium         | scene=mixed     | background=multiple  | output=same_size
+             structure: diagonal_connectivity_changes_objects, few_colors, full_horizontal_lines, full_vertical_lines, many_color_components, mixed_scene, multiple_background_candidates, repeated_columns, repeated_local_patches, repeated_rows, same_size_output
+136b0064 | size=small_medium   | scene=object    | background=clear     | output=width_shrinks
+             structure: clear_background, diagonal_connectivity_changes_objects, full_horizontal_lines, full_vertical_lines, many_color_components, many_colors, object_scene, output_shrinks, repeated_columns, repeated_local_patches, repeated_rows
+13e47133 | size=medium         | scene=mixed     | background=multiple  | output=same_size
+             structure: full_vertical_lines, many_color_components, many_colors, mixed_scene, multiple_background_candidates, repeated_columns, repeated_local_patches, repeated_rows, same_size_output
+142ca369 | size=medium         | scene=object    | background=clear     | output=same_size
+             structure: clear_background, diagonal_connectivity_changes_objects, full_horizontal_lines, full_vertical_lines, object_scene, repeated_columns, repeated_local_patches, repeated_rows, same_size_output
+16b78196 | size=wtf            | scene=object    | background=clear     | output=same_size
+             structure: clear_background, full_horizontal_lines, many_colors, object_scene, repeated_columns, repeated_local_patches, repeated_rows, same_size_output
+16de56c4 | size=small_medium   | scene=object    | background=clear     | output=same_size
+             structure: clear_background, few_colors, full_horizontal_lines, full_vertical_lines, many_color_components, object_scene, repeated_columns, repeated_local_patches, repeated_rows, same_size_output
+1818057f | size=small_medium   | scene=object    | background=clear     | output=same_size
+             structure: clear_background, diagonal_connectivity_changes_objects, few_colors, many_color_components, object_scene, repeated_columns, repeated_local_patches, repeated_rows, same_size_output
+195c6913 | size=medium_large   | scene=mixed     | background=multiple  | output=same_size
+             structure: diagonal_connectivity_changes_objects, full_horizontal_lines, many_color_components, mixed_scene, multiple_background_candidates, repeated_columns, repeated_local_patches, repeated_rows, same_size_output
+1ae2feb7 | size=small_medium   | scene=object    | background=clear     | output=same_size
+             structure: clear_background, full_vertical_lines, many_color_components, many_colors, object_scene, repeated_columns, repeated_local_patches, repeated_rows, same_size_output
+20270e3b | size=small_medium   | scene=object    | background=possible  | output=mixed__height_shrinks__shorter_and_wider__width_shrinks
+             structure: diagonal_connectivity_changes_objects, few_colors, full_horizontal_lines, full_vertical_lines, object_scene, output_shrinks, repeated_columns, repeated_local_patches, repeated_rows
+20a9e565 | size=wtf            | scene=object    | background=clear     | output=both_dimensions_shrink
+             structure: clear_background, full_horizontal_lines, full_vertical_lines, many_color_components, object_scene, output_shrinks, repeated_columns, repeated_local_patches, repeated_rows
+21897d95 | size=small_medium   | scene=pattern   | background=none      | output=mixed__same_size__shorter_and_wider
+             structure: diagonal_connectivity_changes_objects, full_horizontal_lines, full_vertical_lines, many_color_components, many_colors, mixed_output_sizes, no_clear_background, pattern_scene, repeated_columns, repeated_local_patches, repeated_rows
+221dfab4 | size=medium_large   | scene=object    | background=multiple  | output=same_size
+             structure: diagonal_connectivity_changes_objects, few_colors, full_horizontal_lines, full_vertical_lines, many_color_components, multiple_background_candidates, object_scene, repeated_columns, repeated_local_patches, repeated_rows, same_size_output
+247ef758 | size=small_medium   | scene=object    | background=possible  | output=same_size
+             structure: diagonal_connectivity_changes_objects, full_vertical_lines, many_color_components, object_scene, repeated_columns, repeated_local_patches, repeated_rows, same_size_output
+269e22fb | size=small_medium   | scene=object    | background=clear     | output=both_dimensions_grow
+             structure: clear_background, diagonal_connectivity_changes_objects, few_colors, full_horizontal_lines, full_vertical_lines, many_color_components, object_scene, output_grows, repeated_columns, repeated_local_patches, repeated_rows
+271d71e2 | size=small_medium   | scene=object    | background=possible  | output=same_size
+             structure: full_horizontal_lines, full_vertical_lines, many_color_components, object_scene, repeated_columns, repeated_local_patches, repeated_rows, same_size_output
+28a6681f | size=small_medium   | scene=object    | background=clear     | output=same_size
+             structure: clear_background, full_horizontal_lines, full_vertical_lines, object_scene, repeated_columns, repeated_local_patches, repeated_rows, same_size_output
+291dc1e1 | size=small_medium   | scene=mixed     | background=possible  | output=mixed__both_dimensions_shrink__taller_and_narrower__width_shrinks
+             structure: diagonal_connectivity_changes_objects, full_horizontal_lines, many_color_components, many_colors, mixed_scene, output_shrinks, repeated_columns, repeated_local_patches, repeated_rows
+2b83f449 | size=small_medium   | scene=mixed     | background=possible  | output=same_size
+             structure: full_horizontal_lines, many_color_components, mixed_scene, repeated_columns, repeated_local_patches, repeated_rows, same_size_output
+2ba387bc | size=medium_large   | scene=object    | background=clear     | output=both_dimensions_shrink
+             structure: clear_background, full_horizontal_lines, full_vertical_lines, many_color_components, many_colors, object_scene, output_shrinks, repeated_columns, repeated_local_patches, repeated_rows
+2c181942 | size=medium         | scene=object    | background=clear     | output=same_size
+             structure: clear_background, diagonal_connectivity_changes_objects, full_horizontal_lines, full_vertical_lines, many_color_components, object_scene, repeated_columns, repeated_local_patches, repeated_rows, same_size_output
+2d0172a1 | size=medium         | scene=object    | background=uncertain | output=both_dimensions_shrink
+             structure: few_colors, full_horizontal_lines, full_vertical_lines, many_color_components, object_scene, output_shrinks, repeated_columns, repeated_local_patches, repeated_rows
+31f7f899 | size=small_medium   | scene=object    | background=clear     | output=same_size
+             structure: clear_background, full_horizontal_lines, many_color_components, many_colors, object_scene, repeated_columns, repeated_local_patches, repeated_rows, same_size_output
+332f06d7 | size=small_medium   | scene=object    | background=clear     | output=same_size
+             structure: clear_background, full_horizontal_lines, full_vertical_lines, object_scene, repeated_columns, repeated_local_patches, repeated_rows, same_size_output
+35ab12c3 | size=medium         | scene=object    | background=clear     | output=same_size
+             structure: clear_background, diagonal_connectivity_changes_objects, full_horizontal_lines, full_vertical_lines, many_color_components, many_colors, object_scene, repeated_columns, repeated_local_patches, repeated_rows, same_size_output
+36a08778 | size=small_medium   | scene=object    | background=clear     | output=same_size
+             structure: clear_background, diagonal_connectivity_changes_objects, few_colors, full_horizontal_lines, full_vertical_lines, many_color_components, object_scene, repeated_columns, repeated_local_patches, repeated_rows, same_size_output
+38007db0 | size=medium         | scene=mixed     | background=multiple  | output=width_shrinks
+             structure: few_colors, full_horizontal_lines, full_vertical_lines, many_color_components, mixed_scene, multiple_background_candidates, output_shrinks, repeated_columns, repeated_local_patches, repeated_rows
+3a25b0d8 | size=medium         | scene=object    | background=possible  | output=both_dimensions_shrink
+             structure: diagonal_connectivity_changes_objects, full_horizontal_lines, full_vertical_lines, many_color_components, many_colors, object_scene, output_shrinks, repeated_columns, repeated_local_patches, repeated_rows
+3dc255db | size=small_medium   | scene=object    | background=clear     | output=same_size
+             structure: clear_background, diagonal_connectivity_changes_objects, few_colors, full_horizontal_lines, full_vertical_lines, many_color_components, object_scene, repeated_columns, repeated_local_patches, repeated_rows, same_size_output
+3e6067c3 | size=large          | scene=object    | background=clear     | output=same_size
+             structure: clear_background, full_horizontal_lines, full_vertical_lines, many_color_components, many_colors, object_scene, repeated_columns, repeated_local_patches, repeated_rows, same_size_output
+409aa875 | size=small_medium   | scene=object    | background=clear     | output=same_size
+             structure: clear_background, diagonal_connectivity_changes_objects, few_colors, full_horizontal_lines, full_vertical_lines, many_color_components, object_scene, repeated_columns, repeated_local_patches, repeated_rows, same_size_output
+446ef5d2 | size=small_medium   | scene=object    | background=clear     | output=same_size
+             structure: clear_background, full_horizontal_lines, full_vertical_lines, many_color_components, object_scene, repeated_columns, repeated_local_patches, repeated_rows, same_size_output
+45a5af55 | size=small_medium   | scene=mixed     | background=possible  | output=both_dimensions_grow
+             structure: full_horizontal_lines, full_vertical_lines, mixed_scene, output_grows, repeated_columns, repeated_local_patches, repeated_rows
+4a21e3da | size=small_medium   | scene=object    | background=clear     | output=same_size
+             structure: clear_background, diagonal_connectivity_changes_objects, few_colors, full_horizontal_lines, full_vertical_lines, object_scene, repeated_columns, repeated_local_patches, repeated_rows, same_size_output
+4c3d4a41 | size=small_medium   | scene=object    | background=possible  | output=same_size
+             structure: full_vertical_lines, object_scene, repeated_columns, repeated_local_patches, repeated_rows, same_size_output
+4c416de3 | size=medium_large   | scene=object    | background=multiple  | output=same_size
+             structure: diagonal_connectivity_changes_objects, full_horizontal_lines, full_vertical_lines, many_color_components, many_colors, multiple_background_candidates, object_scene, repeated_columns, repeated_local_patches, repeated_rows, same_size_output
+4c7dc4dd | size=wtf            | scene=pattern   | background=none      | output=both_dimensions_shrink
+             structure: diagonal_connectivity_changes_objects, full_horizontal_lines, full_vertical_lines, many_color_components, no_clear_background, output_shrinks, pattern_scene, repeated_columns, repeated_local_patches, repeated_rows
+4e34c42c | size=medium_large   | scene=object    | background=multiple  | output=mixed__both_dimensions_shrink__shorter_and_wider
+             structure: diagonal_connectivity_changes_objects, full_horizontal_lines, full_vertical_lines, many_color_components, many_colors, multiple_background_candidates, object_scene, output_shrinks, repeated_columns, repeated_local_patches, repeated_rows
+53fb4810 | size=small_medium   | scene=object    | background=clear     | output=same_size
+             structure: clear_background, full_horizontal_lines, full_vertical_lines, many_color_components, object_scene, repeated_columns, repeated_local_patches, repeated_rows, same_size_output
+5545f144 | size=small_medium   | scene=object    | background=multiple  | output=width_shrinks
+             structure: diagonal_connectivity_changes_objects, few_colors, full_horizontal_lines, full_vertical_lines, many_color_components, multiple_background_candidates, object_scene, output_shrinks, repeated_columns, repeated_local_patches, repeated_rows
+581f7754 | size=small_medium   | scene=object    | background=multiple  | output=same_size
+             structure: diagonal_connectivity_changes_objects, few_colors, full_horizontal_lines, full_vertical_lines, many_color_components, multiple_background_candidates, object_scene, repeated_columns, repeated_local_patches, repeated_rows, same_size_output
+58490d8a | size=medium_large   | scene=object    | background=multiple  | output=both_dimensions_shrink
+             structure: diagonal_connectivity_changes_objects, full_horizontal_lines, full_vertical_lines, many_color_components, multiple_background_candidates, object_scene, output_shrinks, repeated_columns, repeated_local_patches, repeated_rows
+58f5dbd5 | size=medium         | scene=object    | background=multiple  | output=mixed__both_dimensions_shrink__height_shrinks__width_shrinks
+             structure: diagonal_connectivity_changes_objects, full_horizontal_lines, full_vertical_lines, many_color_components, many_colors, multiple_background_candidates, object_scene, output_shrinks, repeated_columns, repeated_local_patches, repeated_rows
+5961cc34 | size=medium_large   | scene=object    | background=clear     | output=same_size
+             structure: clear_background, full_horizontal_lines, full_vertical_lines, many_color_components, object_scene, repeated_columns, repeated_local_patches, repeated_rows, same_size_output
+5dbc8537 | size=medium         | scene=mixed     | background=multiple  | output=mixed__height_shrinks__width_shrinks
+             structure: diagonal_connectivity_changes_objects, full_horizontal_lines, full_vertical_lines, many_color_components, many_colors, mixed_scene, multiple_background_candidates, output_shrinks, repeated_columns, repeated_local_patches, repeated_rows
+62593bfd | size=wtf            | scene=object    | background=multiple  | output=same_size
+             structure: diagonal_connectivity_changes_objects, full_horizontal_lines, full_vertical_lines, many_colors, multiple_background_candidates, object_scene, repeated_columns, repeated_local_patches, repeated_rows, same_size_output
+64efde09 | size=large          | scene=object    | background=clear     | output=same_size
+             structure: clear_background, full_horizontal_lines, full_vertical_lines, many_color_components, many_colors, object_scene, repeated_columns, repeated_local_patches, repeated_rows, same_size_output
+65b59efc | size=small_medium   | scene=object    | background=possible  | output=mixed__both_dimensions_grow__both_dimensions_shrink
+             structure: diagonal_connectivity_changes_objects, many_color_components, many_colors, object_scene, output_grows, repeated_columns, repeated_local_patches, repeated_rows
+67e490f4 | size=wtf            | scene=object    | background=multiple  | output=both_dimensions_shrink
+             structure: full_horizontal_lines, full_vertical_lines, many_color_components, many_colors, multiple_background_candidates, object_scene, output_shrinks, repeated_columns, repeated_local_patches, repeated_rows
+6e453dd6 | size=small_medium   | scene=object    | background=clear     | output=same_size
+             structure: clear_background, few_colors, full_vertical_lines, many_color_components, object_scene, repeated_columns, repeated_local_patches, repeated_rows, same_size_output
+6e4f6532 | size=medium_large   | scene=mixed     | background=uncertain | output=same_size
+             structure: full_horizontal_lines, full_vertical_lines, many_color_components, many_colors, mixed_scene, repeated_columns, repeated_local_patches, repeated_rows, same_size_output
+6ffbe589 | size=medium         | scene=object    | background=clear     | output=both_dimensions_shrink
+             structure: clear_background, diagonal_connectivity_changes_objects, full_horizontal_lines, full_vertical_lines, many_color_components, object_scene, output_shrinks, repeated_columns, repeated_local_patches, repeated_rows
+71e489b6 | size=small_medium   | scene=object    | background=possible  | output=same_size
+             structure: diagonal_connectivity_changes_objects, few_colors, full_horizontal_lines, full_vertical_lines, many_color_components, object_scene, repeated_columns, repeated_local_patches, repeated_rows, same_size_output
+7491f3cf | size=small_medium   | scene=mixed     | background=uncertain | output=same_size
+             structure: diagonal_connectivity_changes_objects, full_horizontal_lines, full_vertical_lines, many_color_components, mixed_scene, repeated_columns, repeated_local_patches, repeated_rows, same_size_output
+7666fa5d | size=small_medium   | scene=object    | background=clear     | output=same_size
+             structure: clear_background, diagonal_connectivity_changes_objects, few_colors, full_horizontal_lines, full_vertical_lines, many_color_components, object_scene, repeated_columns, repeated_local_patches, repeated_rows, same_size_output
+78332cb0 | size=small_medium   | scene=object    | background=clear     | output=mixed__shorter_and_wider__taller_and_narrower
+             structure: clear_background, full_horizontal_lines, full_vertical_lines, many_color_components, mixed_output_sizes, object_scene, repeated_columns, repeated_local_patches, repeated_rows
+7b0280bc | size=medium         | scene=object    | background=multiple  | output=same_size
+             structure: diagonal_connectivity_changes_objects, full_horizontal_lines, full_vertical_lines, many_color_components, multiple_background_candidates, object_scene, repeated_columns, repeated_local_patches, repeated_rows, same_size_output
+7b3084d4 | size=medium         | scene=object    | background=clear     | output=both_dimensions_shrink
+             structure: clear_background, diagonal_connectivity_changes_objects, full_horizontal_lines, full_vertical_lines, object_scene, output_shrinks, repeated_columns, repeated_local_patches, repeated_rows
+7b5033c1 | size=small_medium   | scene=object    | background=multiple  | output=taller_and_narrower
+             structure: full_horizontal_lines, full_vertical_lines, multiple_background_candidates, object_scene, repeated_columns, repeated_local_patches, repeated_rows
+7b80bb43 | size=medium_large   | scene=object    | background=multiple  | output=same_size
+             structure: diagonal_connectivity_changes_objects, few_colors, full_horizontal_lines, full_vertical_lines, many_color_components, multiple_background_candidates, object_scene, repeated_columns, repeated_local_patches, repeated_rows, same_size_output
+7c66cb00 | size=large          | scene=mixed     | background=multiple  | output=same_size
+             structure: full_horizontal_lines, many_color_components, mixed_scene, multiple_background_candidates, repeated_columns, repeated_local_patches, repeated_rows, same_size_output
+7ed72f31 | size=small_medium   | scene=object    | background=multiple  | output=same_size
+             structure: diagonal_connectivity_changes_objects, full_horizontal_lines, full_vertical_lines, many_color_components, multiple_background_candidates, object_scene, repeated_columns, repeated_local_patches, repeated_rows, same_size_output
+800d221b | size=medium         | scene=mixed     | background=multiple  | output=same_size
+             structure: diagonal_connectivity_changes_objects, many_color_components, mixed_scene, multiple_background_candidates, repeated_columns, repeated_local_patches, repeated_rows, same_size_output
+80a900e0 | size=large          | scene=pattern   | background=multiple  | output=same_size
+             structure: diagonal_connectivity_changes_objects, many_color_components, multiple_background_candidates, pattern_scene, repeated_columns, repeated_local_patches, repeated_rows, same_size_output
+8698868d | size=wtf            | scene=mixed     | background=multiple  | output=both_dimensions_shrink
+             structure: diagonal_connectivity_changes_objects, full_horizontal_lines, full_vertical_lines, many_color_components, many_colors, mixed_scene, multiple_background_candidates, output_shrinks, repeated_columns, repeated_local_patches, repeated_rows
+88bcf3b4 | size=small_medium   | scene=object    | background=possible  | output=same_size
+             structure: diagonal_connectivity_changes_objects, full_horizontal_lines, full_vertical_lines, object_scene, repeated_columns, repeated_local_patches, repeated_rows, same_size_output
+88e364bc | size=medium         | scene=object    | background=clear     | output=same_size
+             structure: clear_background, diagonal_connectivity_changes_objects, full_horizontal_lines, full_vertical_lines, many_color_components, object_scene, repeated_columns, repeated_local_patches, repeated_rows, same_size_output
+89565ca0 | size=medium_large   | scene=object    | background=clear     | output=both_dimensions_shrink
+             structure: clear_background, diagonal_connectivity_changes_objects, full_horizontal_lines, full_vertical_lines, many_color_components, many_colors, object_scene, output_shrinks, repeated_columns, repeated_local_patches, repeated_rows
+898e7135 | size=medium_large   | scene=object    | background=clear     | output=mixed__both_dimensions_shrink__taller_and_narrower
+             structure: clear_background, full_horizontal_lines, full_vertical_lines, many_color_components, many_colors, object_scene, output_shrinks, repeated_columns, repeated_local_patches, repeated_rows
+8b7bacbf | size=medium         | scene=object    | background=clear     | output=same_size
+             structure: clear_background, diagonal_connectivity_changes_objects, full_horizontal_lines, full_vertical_lines, many_color_components, object_scene, repeated_columns, repeated_local_patches, repeated_rows, same_size_output
+8b9c3697 | size=medium         | scene=object    | background=possible  | output=same_size
+             structure: few_colors, full_horizontal_lines, full_vertical_lines, many_color_components, object_scene, repeated_columns, repeated_local_patches, repeated_rows, same_size_output
+8e5c0c38 | size=medium         | scene=object    | background=multiple  | output=same_size
+             structure: diagonal_connectivity_changes_objects, full_horizontal_lines, full_vertical_lines, many_color_components, multiple_background_candidates, object_scene, repeated_columns, repeated_local_patches, repeated_rows, same_size_output
+8f215267 | size=medium_large   | scene=object    | background=multiple  | output=same_size
+             structure: full_horizontal_lines, full_vertical_lines, many_color_components, multiple_background_candidates, object_scene, repeated_columns, repeated_local_patches, repeated_rows, same_size_output
+8f3a5a89 | size=medium         | scene=object    | background=clear     | output=same_size
+             structure: clear_background, few_colors, full_horizontal_lines, full_vertical_lines, object_scene, repeated_columns, repeated_local_patches, repeated_rows, same_size_output
+9385bd28 | size=small_medium   | scene=object    | background=clear     | output=same_size
+             structure: clear_background, diagonal_connectivity_changes_objects, full_horizontal_lines, full_vertical_lines, many_color_components, many_colors, object_scene, repeated_columns, repeated_local_patches, repeated_rows, same_size_output
+97d7923e | size=small_medium   | scene=object    | background=clear     | output=same_size
+             structure: clear_background, few_colors, full_horizontal_lines, full_vertical_lines, many_color_components, object_scene, repeated_columns, repeated_local_patches, repeated_rows, same_size_output
+981571dc | size=wtf            | scene=pattern   | background=none      | output=same_size
+             structure: diagonal_connectivity_changes_objects, many_color_components, many_colors, no_clear_background, pattern_scene, repeated_columns, repeated_local_patches, repeated_rows, same_size_output
+9aaea919 | size=wtf            | scene=object    | background=multiple  | output=same_size
+             structure: full_horizontal_lines, full_vertical_lines, many_color_components, many_colors, multiple_background_candidates, object_scene, repeated_columns, repeated_local_patches, repeated_rows, same_size_output
+9bbf930d | size=small_medium   | scene=mixed     | background=possible  | output=same_size
+             structure: diagonal_connectivity_changes_objects, full_vertical_lines, many_color_components, many_colors, mixed_scene, repeated_columns, repeated_local_patches, repeated_rows, same_size_output
+a251c730 | size=wtf            | scene=pattern   | background=uncertain | output=both_dimensions_shrink
+             structure: diagonal_connectivity_changes_objects, full_horizontal_lines, full_vertical_lines, many_color_components, many_colors, output_shrinks, pattern_scene, repeated_columns, repeated_local_patches, repeated_rows
+a25697e4 | size=medium         | scene=object    | background=clear     | output=same_size
+             structure: clear_background, full_horizontal_lines, full_vertical_lines, object_scene, repeated_columns, repeated_local_patches, repeated_rows, same_size_output
+a32d8b75 | size=medium_large   | scene=pattern   | background=uncertain | output=width_shrinks
+             structure: diagonal_connectivity_changes_objects, full_horizontal_lines, full_vertical_lines, many_color_components, many_colors, output_shrinks, pattern_scene, repeated_columns, repeated_local_patches, repeated_rows
+a395ee82 | size=medium         | scene=object    | background=multiple  | output=same_size
+             structure: diagonal_connectivity_changes_objects, few_colors, full_horizontal_lines, full_vertical_lines, multiple_background_candidates, object_scene, repeated_columns, repeated_local_patches, repeated_rows, same_size_output
+a47bf94d | size=medium         | scene=object    | background=clear     | output=same_size
+             structure: clear_background, diagonal_connectivity_changes_objects, full_horizontal_lines, full_vertical_lines, many_color_components, many_colors, object_scene, repeated_columns, repeated_local_patches, repeated_rows, same_size_output
+a6f40cea | size=wtf            | scene=object    | background=multiple  | output=both_dimensions_shrink
+             structure: diagonal_connectivity_changes_objects, full_horizontal_lines, full_vertical_lines, many_color_components, multiple_background_candidates, object_scene, output_shrinks, repeated_columns, repeated_local_patches, repeated_rows
+aa4ec2a5 | size=medium_large   | scene=object    | background=clear     | output=same_size
+             structure: clear_background, few_colors, full_horizontal_lines, full_vertical_lines, object_scene, repeated_columns, repeated_local_patches, repeated_rows, same_size_output
+abc82100 | size=medium         | scene=object    | background=clear     | output=same_size
+             structure: clear_background, diagonal_connectivity_changes_objects, full_horizontal_lines, full_vertical_lines, many_color_components, object_scene, repeated_columns, repeated_local_patches, repeated_rows, same_size_output
+b0039139 | size=small_medium   | scene=mixed     | background=possible  | output=both_dimensions_shrink
+             structure: full_horizontal_lines, full_vertical_lines, many_color_components, mixed_scene, output_shrinks, repeated_columns, repeated_local_patches, repeated_rows
+b10624e5 | size=large          | scene=object    | background=clear     | output=same_size
+             structure: clear_background, full_horizontal_lines, full_vertical_lines, many_color_components, object_scene, repeated_columns, repeated_local_patches, repeated_rows, same_size_output
+b5ca7ac4 | size=medium         | scene=mixed     | background=multiple  | output=same_size
+             structure: diagonal_connectivity_changes_objects, full_horizontal_lines, full_vertical_lines, many_color_components, many_colors, mixed_scene, multiple_background_candidates, repeated_columns, repeated_local_patches, repeated_rows, same_size_output
+b6f77b65 | size=small_medium   | scene=object    | background=clear     | output=same_size
+             structure: clear_background, diagonal_connectivity_changes_objects, full_horizontal_lines, full_vertical_lines, many_color_components, many_colors, object_scene, repeated_columns, repeated_local_patches, repeated_rows, same_size_output
+b99e7126 | size=very_large     | scene=mixed     | background=possible  | output=same_size
+             structure: diagonal_connectivity_changes_objects, full_horizontal_lines, full_vertical_lines, many_color_components, mixed_scene, repeated_columns, repeated_local_patches, repeated_rows, same_size_output
+b9e38dc0 | size=small_medium   | scene=object    | background=multiple  | output=same_size
+             structure: diagonal_connectivity_changes_objects, few_colors, full_horizontal_lines, full_vertical_lines, many_color_components, multiple_background_candidates, object_scene, repeated_columns, repeated_local_patches, repeated_rows, same_size_output
+bf45cf4b | size=small_medium   | scene=object    | background=multiple  | output=mixed__height_shrinks__same_size__width_shrinks
+             structure: diagonal_connectivity_changes_objects, full_horizontal_lines, full_vertical_lines, many_color_components, multiple_background_candidates, object_scene, output_shrinks, repeated_columns, repeated_local_patches, repeated_rows
+c4d067a0 | size=medium_large   | scene=object    | background=possible  | output=same_size
+             structure: few_colors, full_horizontal_lines, full_vertical_lines, many_color_components, object_scene, repeated_columns, repeated_local_patches, repeated_rows, same_size_output
+c7f57c3e | size=small_medium   | scene=object    | background=multiple  | output=same_size
+             structure: diagonal_connectivity_changes_objects, full_horizontal_lines, full_vertical_lines, many_color_components, multiple_background_candidates, object_scene, repeated_columns, repeated_local_patches, repeated_rows, same_size_output
+cb2d8a2c | size=small_medium   | scene=object    | background=clear     | output=same_size
+             structure: clear_background, full_horizontal_lines, full_vertical_lines, many_color_components, object_scene, repeated_columns, repeated_local_patches, repeated_rows, same_size_output
+cbebaa4b | size=medium         | scene=object    | background=clear     | output=same_size
+             structure: clear_background, full_horizontal_lines, full_vertical_lines, many_color_components, many_colors, object_scene, repeated_columns, repeated_local_patches, repeated_rows, same_size_output
+d35bdbdc | size=small_medium   | scene=object    | background=possible  | output=same_size
+             structure: diagonal_connectivity_changes_objects, full_horizontal_lines, many_color_components, many_colors, object_scene, repeated_columns, repeated_local_patches, repeated_rows, same_size_output
+d59b0160 | size=small_medium   | scene=object    | background=possible  | output=same_size
+             structure: diagonal_connectivity_changes_objects, full_horizontal_lines, full_vertical_lines, many_color_components, many_colors, object_scene, repeated_columns, repeated_local_patches, repeated_rows, same_size_output
+d8e07eb2 | size=medium_large   | scene=object    | background=clear     | output=same_size
+             structure: clear_background, diagonal_connectivity_changes_objects, full_horizontal_lines, many_color_components, many_colors, object_scene, repeated_columns, repeated_local_patches, repeated_rows, same_size_output
+da515329 | size=medium         | scene=object    | background=clear     | output=same_size
+             structure: clear_background, diagonal_connectivity_changes_objects, few_colors, full_horizontal_lines, full_vertical_lines, object_scene, repeated_columns, repeated_local_patches, repeated_rows, same_size_output
+db0c5428 | size=small_medium   | scene=object    | background=clear     | output=same_size
+             structure: clear_background, diagonal_connectivity_changes_objects, few_colors, full_horizontal_lines, full_vertical_lines, many_color_components, object_scene, repeated_columns, repeated_local_patches, repeated_rows, same_size_output
+db695cfb | size=small_medium   | scene=object    | background=multiple  | output=same_size
+             structure: diagonal_connectivity_changes_objects, few_colors, full_horizontal_lines, full_vertical_lines, multiple_background_candidates, object_scene, repeated_columns, repeated_local_patches, repeated_rows, same_size_output
+dbff022c | size=small_medium   | scene=object    | background=clear     | output=same_size
+             structure: clear_background, diagonal_connectivity_changes_objects, full_horizontal_lines, full_vertical_lines, many_color_components, many_colors, object_scene, repeated_columns, repeated_local_patches, repeated_rows, same_size_output
+dd6b8c4b | size=small_medium   | scene=object    | background=clear     | output=same_size
+             structure: clear_background, diagonal_connectivity_changes_objects, full_horizontal_lines, full_vertical_lines, many_color_components, object_scene, repeated_columns, repeated_local_patches, repeated_rows, same_size_output
+de809cff | size=medium         | scene=mixed     | background=uncertain | output=same_size
+             structure: diagonal_connectivity_changes_objects, few_colors, many_color_components, mixed_scene, repeated_columns, repeated_local_patches, repeated_rows, same_size_output
+dfadab01 | size=medium         | scene=object    | background=clear     | output=same_size
+             structure: clear_background, diagonal_connectivity_changes_objects, few_colors, full_horizontal_lines, full_vertical_lines, many_color_components, object_scene, repeated_columns, repeated_local_patches, repeated_rows, same_size_output
+e12f9a14 | size=medium_large   | scene=object    | background=clear     | output=same_size
+             structure: clear_background, diagonal_connectivity_changes_objects, few_colors, full_horizontal_lines, full_vertical_lines, many_color_components, object_scene, repeated_columns, repeated_local_patches, repeated_rows, same_size_output
+e3721c99 | size=wtf            | scene=object    | background=clear     | output=same_size
+             structure: clear_background, full_horizontal_lines, full_vertical_lines, many_color_components, object_scene, repeated_columns, repeated_local_patches, repeated_rows, same_size_output
+e376de54 | size=small_medium   | scene=object    | background=clear     | output=same_size
+             structure: clear_background, diagonal_connectivity_changes_objects, few_colors, full_horizontal_lines, full_vertical_lines, many_color_components, object_scene, repeated_columns, repeated_local_patches, repeated_rows, same_size_output
+e8686506 | size=small_medium   | scene=object    | background=multiple  | output=both_dimensions_shrink
+             structure: diagonal_connectivity_changes_objects, full_horizontal_lines, full_vertical_lines, many_color_components, many_colors, multiple_background_candidates, object_scene, output_shrinks, repeated_columns, repeated_local_patches, repeated_rows
+e87109e9 | size=medium_large   | scene=mixed     | background=multiple  | output=height_shrinks
+             structure: full_horizontal_lines, many_color_components, many_colors, mixed_scene, multiple_background_candidates, output_shrinks, repeated_columns, repeated_local_patches, repeated_rows
+edb79dae | size=medium_large   | scene=mixed     | background=multiple  | output=both_dimensions_shrink
+             structure: full_horizontal_lines, full_vertical_lines, many_color_components, many_colors, mixed_scene, multiple_background_candidates, output_shrinks, repeated_columns, repeated_local_patches, repeated_rows
+eee78d87 | size=small          | scene=object    | background=clear     | output=both_dimensions_grow
+             structure: clear_background, diagonal_connectivity_changes_objects, few_colors, full_horizontal_lines, full_vertical_lines, object_scene, output_grows, repeated_columns, repeated_local_patches, repeated_rows
+f560132c | size=medium         | scene=object    | background=clear     | output=both_dimensions_shrink
+             structure: clear_background, full_horizontal_lines, full_vertical_lines, many_colors, object_scene, output_shrinks, repeated_columns, repeated_local_patches, repeated_rows
+f931b4a8 | size=small_medium   | scene=mixed     | background=possible  | output=mixed__both_dimensions_grow__both_dimensions_shrink__taller_and_narrower
+             structure: diagonal_connectivity_changes_objects, full_horizontal_lines, full_vertical_lines, many_color_components, mixed_scene, output_grows, repeated_columns, repeated_local_patches, repeated_rows
+faa9f03d | size=small_medium   | scene=object    | background=clear     | output=same_size
+             structure: clear_background, diagonal_connectivity_changes_objects, full_horizontal_lines, full_vertical_lines, many_color_components, object_scene, repeated_columns, repeated_local_patches, repeated_rows, same_size_output
+fc7cae8d | size=medium         | scene=mixed     | background=possible  | output=both_dimensions_shrink
+             structure: diagonal_connectivity_changes_objects, full_horizontal_lines, full_vertical_lines, many_color_components, many_colors, mixed_scene, output_shrinks, repeated_columns, repeated_local_patches, repeated_rows
