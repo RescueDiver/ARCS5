@@ -491,7 +491,7 @@ def compare_scene_graphs(
     input_graph: SceneGraph,
     output_graph: SceneGraph,
     *,
-    minimum_match_score: float = 0.45,
+    minimum_match_score: float = 0.65,
 ) -> SceneDifference:
     matches = match_scene_objects(
         input_graph,
@@ -561,7 +561,7 @@ def compare_grids(
     connectivity: int = 4,
     preferred_void_colors: Iterable[int] = (0,),
     background_hint: int | None = None,
-    minimum_match_score: float = 0.45,
+    minimum_match_score: float = 0.65,
 ) -> SceneDifference:
     input_graph = build_scene_graph(
         input_grid,
