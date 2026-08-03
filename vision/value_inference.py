@@ -17,6 +17,7 @@ class ObservedValue:
     value: Any
     source_event_type: str
     source_properties: tuple[tuple[str, Any], ...]
+    role_name: str | None = None
 
 
 @dataclass(frozen=True)
@@ -65,18 +66,48 @@ OPERATION_EVENT_TYPES = {
     "MOVE_OBJECT": {"object_translation"},
     "ROTATE_OBJECT": {"object_rotation"},
     "REFLECT_OBJECT": {"object_reflection"},
-    "RECOLOR_OBJECT": {"object_recoloring"},
-    "RESIZE_OBJECT": {"object_resize"},
+    "RECOLOR_OBJECT": {
+        "object_recoloring",
+        "object_color_change",
+    },
+    "RESIZE_OBJECT": {
+        "object_resize",
+        "object_size_change",
+        "object_dimension_change",
+    },
     "CHANGE_SHAPE": {"object_shape_change"},
+    "CHANGE_ROLE": {"scene_role_change"},
+    "CHANGE_INTERNAL_PATTERN": {"internal_pattern_change"},
     "CREATE_OBJECT": {"object_creation"},
     "DELETE_OBJECT": {"object_deletion"},
     "DUPLICATE_OBJECT": {"object_duplication"},
     "MERGE_OBJECTS": {"object_merging"},
     "SPLIT_OBJECT": {"object_splitting"},
-    "RESIZE_GRID": {"grid_resize"},
-    "CHANGE_CANVAS": {"canvas_change"},
-    "SATISFY_RELATIONSHIP": {"relationship_creation", "relationship_deletion", "relationship_reversal", "relationship_change"},
+    "CREATE_COLLECTION": {"object_collection_creation"},
+    "DELETE_COLLECTION": {"object_collection_deletion"},
+    "CREATE_REGULAR_ARRAY": {"regular_array_creation"},
+    "DELETE_REGULAR_ARRAY": {"regular_array_deletion"},
+    "CREATE_REGULAR_REPETITION": {"regular_repetition_creation"},
+    "DELETE_REGULAR_REPETITION": {"regular_repetition_deletion"},
+    "RESIZE_GRID": {
+        "grid_resize",
+        "grid_shape_change",
+    },
+    "CHANGE_CANVAS": {
+        "canvas_change",
+        "background_canvas_change",
+    },
+    "CREATE_BACKGROUND": {"background_canvas_creation"},
+    "DELETE_BACKGROUND": {"background_canvas_deletion"},
+    "SATISFY_RELATIONSHIP": {
+        "relationship_creation",
+        "relationship_change",
+    },
+    "REMOVE_RELATIONSHIP": {"relationship_deletion"},
+    "REVERSE_RELATIONSHIP": {"relationship_reversal"},
+    "PRESERVE_RELATIONSHIP": {"relationship_preservation"},
 }
+
 
 
 def _properties(event: GeneralizedEvent) -> dict[str, Any]:
@@ -162,23 +193,142 @@ def _extract_argument_value(event: GeneralizedEvent, argument_name: str) -> Any:
     return properties.get(argument_name)
 
 
-def collect_argument_observations(stories: Sequence[GeneralizedPairStory], *, operation: str, argument_name: str) -> tuple[ObservedValue, ...]:
+
+def _step_argument_value(
+    step: PlanStep,
+    argument_name: str,
+) -> Any:
+    for argument in step.arguments:
+        if argument.name == argument_name and argument.resolved:
+            return argument.value
+    return None
+
+
+def _as_mapping(value: Any) -> dict[str, Any]:
+    if isinstance(value, Mapping):
+        return dict(value)
+
+    try:
+        return dict(value)
+    except (TypeError, ValueError):
+        return {}
+
+
+def _event_matches_role(
+    event: GeneralizedEvent,
+    *,
+    role_signature: Any,
+) -> bool:
+    """
+    Match an event to a learned planner role using only properties that both
+    sides actually expose.
+
+    Shape, color, dimensions, and counts may be variable, so role matching
+    primarily uses scene role, layout kind, lattice status, subject, action,
+    and object type. Unknown positional role fields are ignored here.
+    """
+    signature = _as_mapping(role_signature)
+
+    if not signature:
+        return True
+
+    properties = _properties(event)
+
+    comparisons: list[bool] = []
+
+    property_names = (
+        "scene_role",
+        "layout_kind",
+        "complete_lattice",
+        "regular_layout",
+        "input_role",
+        "output_role",
+        "relationship",
+        "old_relationship",
+        "new_relationship",
+    )
+
+    for name in property_names:
+        if name not in signature or name not in properties:
+            continue
+
+        expected = signature[name]
+
+        # A role-aware learner may store several observed values. In that case,
+        # any one of them is a valid match.
+        if (
+            isinstance(expected, tuple)
+            and expected
+            and not isinstance(expected[0], (int, float, str, bool))
+        ):
+            comparisons.append(properties[name] in expected)
+        else:
+            comparisons.append(properties[name] == expected)
+
+    attribute_names = (
+        "subject_type",
+        "action",
+        "object_type",
+    )
+
+    for name in attribute_names:
+        if name not in signature:
+            continue
+
+        comparisons.append(
+            getattr(event, name, None) == signature[name]
+        )
+
+    # If the signature contains only normalized geometry fields unavailable on
+    # the event, do not reject the event. The event type still scopes it.
+    return all(comparisons) if comparisons else True
+
+def collect_argument_observations(
+    stories: Sequence[GeneralizedPairStory],
+    *,
+    operation: str,
+    argument_name: str,
+    learned_role: str | None = None,
+    role_signature: Any = None,
+) -> tuple[ObservedValue, ...]:
     allowed = OPERATION_EVENT_TYPES.get(operation, set())
     observations: list[ObservedValue] = []
+
     for pair_index, story in enumerate(stories, start=1):
         for event in story.events:
             if allowed and event.event_type not in allowed:
                 continue
-            value = _extract_argument_value(event, argument_name)
+
+            if not _event_matches_role(
+                event,
+                role_signature=role_signature,
+            ):
+                continue
+
+            value = _extract_argument_value(
+                event,
+                argument_name,
+            )
+
             if value is None:
                 continue
-            observations.append(ObservedValue(
-                pair_index=pair_index,
-                argument_name=argument_name,
-                value=value,
-                source_event_type=event.event_type,
-                source_properties=tuple(sorted(_properties(event).items(), key=lambda item: item[0])),
-            ))
+
+            observations.append(
+                ObservedValue(
+                    pair_index=pair_index,
+                    argument_name=argument_name,
+                    value=value,
+                    source_event_type=event.event_type,
+                    source_properties=tuple(
+                        sorted(
+                            _properties(event).items(),
+                            key=lambda item: item[0],
+                        )
+                    ),
+                    role_name=learned_role,
+                )
+            )
+
     return tuple(observations)
 
 
@@ -266,16 +416,93 @@ def infer_plan_values(plan: RulePlan, stories: Sequence[GeneralizedPairStory], *
 
     for step in plan.steps:
         new_arguments: list[PlanArgument] = []
+
+        learned_role = _step_argument_value(
+            step,
+            "learned_role",
+        )
+        role_signature = _step_argument_value(
+            step,
+            "role_signature",
+        )
+
         for argument in step.arguments:
             if argument.resolved:
                 new_arguments.append(argument)
                 continue
-            observations = collect_argument_observations(stories, operation=step.operation, argument_name=argument.name)
+
+            # Layer order is a safe composition default. It does not depend on
+            # a particular training event and can be overridden later.
+            if argument.name == "layer_order":
+                selected = InferenceCandidate(
+                    argument_name="layer_order",
+                    strategy="safe_composition_default",
+                    inferred_value=(
+                        "background",
+                        "structural",
+                        "collection",
+                        "object",
+                        "motif",
+                        "repair",
+                    ),
+                    confidence=1.0,
+                    support_count=len(stories),
+                    pair_count=len(stories),
+                    explanation=(
+                        "Use the standard ARCs5 composition order until "
+                        "training proves a different overlay order."
+                    ),
+                )
+
+                reports.append(
+                    ArgumentInference(
+                        step.step_number,
+                        step.operation,
+                        argument.name,
+                        (selected,),
+                        selected,
+                        True,
+                        None,
+                    )
+                )
+
+                new_arguments.append(
+                    replace(
+                        argument,
+                        value=selected.inferred_value,
+                        source=(
+                            "value inference: safe_composition_default; "
+                            + selected.explanation
+                        ),
+                        resolved=True,
+                    )
+                )
+                continue
+
+            observations = collect_argument_observations(
+                stories,
+                operation=step.operation,
+                argument_name=argument.name,
+                learned_role=(
+                    str(learned_role)
+                    if learned_role is not None
+                    else None
+                ),
+                role_signature=role_signature,
+            )
             candidates = infer_argument_candidates(argument.name, observations, pair_count=len(stories))
             selected = select_candidate(candidates, minimum_confidence=minimum_confidence)
             warning = None
             if not observations:
-                warning = "No concrete training values were retained in the generalized events."
+                role_suffix = (
+                    f" for learned role {learned_role!r}"
+                    if learned_role is not None
+                    else ""
+                )
+                warning = (
+                    "No concrete training values were retained in the "
+                    f"generalized events{role_suffix}."
+                )
             elif selected is None and candidates:
                 warning = f"Best strategy '{candidates[0].strategy}' requires test-scene reasoning or has insufficient confidence."
             elif selected is None:

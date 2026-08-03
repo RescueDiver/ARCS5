@@ -3,7 +3,7 @@ from __future__ import annotations
 from dataclasses import dataclass, replace
 from typing import Any, Iterable, Mapping, Sequence
 
-from vision.rule_planner import MOVE_OBJECT, PlanArgument, PlanStep, RulePlan
+from vision.rule_planner import BIND_SCENE_ROLES, MOVE_OBJECT, PlanArgument, PlanStep, RulePlan
 from vision.scene_graph import SceneGraph, SceneGraphNode, build_scene_graph
 from vision.story_generalizer import GeneralizedPairStory
 from vision.value_inference import ArgumentInference, InferenceCandidate, ValueInferenceReport
@@ -15,6 +15,13 @@ class SceneRoleBindings:
 
     transformed_object_id: int
     anchor_object_id: int
+
+
+@dataclass(frozen=True)
+class SceneRoleBindingResult:
+    bindings: SceneRoleBindings
+    confidence: float
+    explanation: str
 
 
 @dataclass(frozen=True)
@@ -228,6 +235,391 @@ def _fixed_integer(step: PlanStep, name: str) -> int | None:
     return None
 
 
+
+def _step_argument(
+    step: PlanStep,
+    name: str,
+) -> PlanArgument | None:
+    return next(
+        (
+            argument
+            for argument in step.arguments
+            if argument.name == name
+        ),
+        None,
+    )
+
+
+def _mapping(value: Any) -> dict[str, Any]:
+    if isinstance(value, Mapping):
+        return dict(value)
+
+    try:
+        return dict(value)
+    except (TypeError, ValueError):
+        return {}
+
+
+def _selection_fixed_properties(
+    step: PlanStep,
+) -> dict[str, Any]:
+    selection = _step_argument(step, "selection_rule")
+
+    if selection is None or not selection.resolved:
+        return {}
+
+    selection_mapping = _mapping(selection.value)
+    fixed = selection_mapping.get("fixed_properties")
+
+    return _mapping(fixed)
+
+
+def _node_matches_fixed_properties(
+    node: SceneGraphNode,
+    fixed: Mapping[str, Any],
+) -> bool:
+    """
+    Match only properties that map cleanly onto a concrete scene node.
+
+    Movement-direction and transformation properties describe the action,
+    not the input object, so they are intentionally ignored here.
+    """
+    comparisons: list[bool] = []
+
+    property_map = {
+        "color": node.color,
+        "cell_count": node.cell_count,
+        "dimensions": (
+            node.bbox_height,
+            node.bbox_width,
+        ),
+        "object_dimensions": (
+            node.bbox_height,
+            node.bbox_width,
+        ),
+        "shape": node.shape_name,
+        "scene_role": node.role.value,
+    }
+
+    for name, actual in property_map.items():
+        if name not in fixed:
+            continue
+
+        comparisons.append(actual == fixed[name])
+
+    return all(comparisons) if comparisons else True
+
+
+def _candidate_movers(
+    graph: SceneGraph,
+    move_step: PlanStep,
+) -> tuple[SceneGraphNode, ...]:
+    fixed = _selection_fixed_properties(move_step)
+
+    candidates = tuple(
+        node
+        for node in graph.nodes
+        if node.role.value not in {"background", "void"}
+        and _node_matches_fixed_properties(node, fixed)
+    )
+
+    if candidates:
+        return candidates
+
+    return tuple(
+        node
+        for node in graph.nodes
+        if node.role.value not in {"background", "void"}
+    )
+
+
+def _candidate_anchors(
+    graph: SceneGraph,
+    mover: SceneGraphNode,
+) -> tuple[SceneGraphNode, ...]:
+    return tuple(
+        node
+        for node in graph.nodes
+        if node.object_id != mover.object_id
+        and node.role.value not in {"background", "void"}
+    )
+
+
+def _movement_direction_signs(
+    inference_report: ValueInferenceReport,
+    move_step: PlanStep,
+) -> tuple[int | None, int | None]:
+    row_candidate = _best_candidate(
+        _argument_inference(
+            inference_report,
+            move_step.step_number,
+            "row_delta",
+        )
+    )
+    column_candidate = _best_candidate(
+        _argument_inference(
+            inference_report,
+            move_step.step_number,
+            "column_delta",
+        )
+    )
+
+    row_sign = _candidate_sign(row_candidate)
+    column_sign = _candidate_sign(column_candidate)
+
+    fixed_row = _fixed_integer(move_step, "row_delta")
+    fixed_column = _fixed_integer(move_step, "column_delta")
+
+    if fixed_row is not None:
+        row_sign = (
+            1 if fixed_row > 0
+            else -1 if fixed_row < 0
+            else 0
+        )
+
+    if fixed_column is not None:
+        column_sign = (
+            1 if fixed_column > 0
+            else -1 if fixed_column < 0
+            else 0
+        )
+
+    return row_sign, column_sign
+
+
+def bind_scene_roles(
+    graph: SceneGraph,
+    plan: RulePlan,
+    inference_report: ValueInferenceReport,
+    training_stories: Sequence[GeneralizedPairStory],
+) -> SceneRoleBindingResult:
+    """
+    Bind the transformed object and anchor by testing concrete scene pairs.
+
+    The binder uses:
+      - the MOVE_OBJECT role's fixed object properties,
+      - learned movement direction,
+      - the shared directional relationship goal,
+      - bounds and collision validation.
+
+    It never uses the expected test output.
+    """
+    relationship_goal = infer_relationship_goal(
+        training_stories
+    )
+
+    if relationship_goal is None:
+        raise ValueError(
+            "No single directional relationship goal was learned."
+        )
+
+    move_step = next(
+        (
+            step
+            for step in plan.steps
+            if step.operation == MOVE_OBJECT
+        ),
+        None,
+    )
+
+    if move_step is None:
+        raise ValueError(
+            "The plan contains no MOVE_OBJECT step."
+        )
+
+    row_sign, column_sign = _movement_direction_signs(
+        inference_report,
+        move_step,
+    )
+
+    fixed_row = _fixed_integer(
+        move_step,
+        "row_delta",
+    )
+    fixed_column = _fixed_integer(
+        move_step,
+        "column_delta",
+    )
+
+    valid_bindings: list[
+        tuple[
+            int,
+            int,
+            int,
+            int,
+            str,
+        ]
+    ] = []
+
+    for mover in _candidate_movers(
+        graph,
+        move_step,
+    ):
+        for anchor in _candidate_anchors(
+            graph,
+            mover,
+        ):
+            try:
+                axis_name, required_delta = (
+                    _required_axis_delta(
+                        mover,
+                        anchor,
+                        relationship_goal,
+                    )
+                )
+            except ValueError:
+                continue
+
+            row_delta = (
+                fixed_row
+                if fixed_row is not None
+                else 0
+            )
+            column_delta = (
+                fixed_column
+                if fixed_column is not None
+                else 0
+            )
+
+            if axis_name == "row_delta":
+                row_delta = required_delta
+                learned_sign = row_sign
+            else:
+                column_delta = required_delta
+                learned_sign = column_sign
+
+            actual_sign = (
+                1 if required_delta > 0
+                else -1 if required_delta < 0
+                else 0
+            )
+
+            if (
+                learned_sign is not None
+                and actual_sign != learned_sign
+            ):
+                continue
+
+            valid, _ = validate_translation(
+                graph,
+                mover,
+                anchor,
+                relationship_goal,
+                row_delta=row_delta,
+                column_delta=column_delta,
+            )
+
+            if not valid:
+                continue
+
+            # Prefer the smallest legal move. Then prefer the smaller mover,
+            # which is usually the transformed foreground object rather than
+            # a large structural object.
+            movement_cost = (
+                abs(row_delta)
+                + abs(column_delta)
+            )
+
+            valid_bindings.append(
+                (
+                    movement_cost,
+                    mover.cell_count,
+                    mover.object_id,
+                    anchor.object_id,
+                    axis_name,
+                )
+            )
+
+    if not valid_bindings:
+        raise ValueError(
+            "No mover/anchor pair satisfies the learned role, "
+            "direction, relationship, bounds, and collision constraints."
+        )
+
+    valid_bindings.sort()
+    (
+        movement_cost,
+        _,
+        mover_id,
+        anchor_id,
+        axis_name,
+    ) = valid_bindings[0]
+
+    equally_best = [
+        candidate
+        for candidate in valid_bindings
+        if candidate[:2] == valid_bindings[0][:2]
+    ]
+
+    confidence = (
+        1.0
+        if len(equally_best) == 1
+        else max(
+            0.60,
+            1.0 / len(equally_best),
+        )
+    )
+
+    return SceneRoleBindingResult(
+        bindings=SceneRoleBindings(
+            transformed_object_id=mover_id,
+            anchor_object_id=anchor_id,
+        ),
+        confidence=confidence,
+        explanation=(
+            f"Bound Object {mover_id} as the transformed object and "
+            f"Object {anchor_id} as the anchor because this pair gives "
+            f"the smallest valid {axis_name} move ({movement_cost} total "
+            f"cells) that satisfies {relationship_goal!r}."
+        ),
+    )
+
+
+def _resolve_binding_step(
+    step: PlanStep,
+    binding_result: SceneRoleBindingResult,
+) -> tuple[PlanStep, ResolvedSceneValue]:
+    binding_value = {
+        "transformed_object_id": (
+            binding_result.bindings.transformed_object_id
+        ),
+        "anchor_object_id": (
+            binding_result.bindings.anchor_object_id
+        ),
+    }
+
+    resolution = ResolvedSceneValue(
+        step_number=step.step_number,
+        operation=step.operation,
+        argument_name="binding_rule",
+        value=binding_value,
+        confidence=binding_result.confidence,
+        resolver="bind_scene_roles",
+        explanation=binding_result.explanation,
+    )
+
+    new_arguments = tuple(
+        _resolved_argument(argument, resolution)
+        if (
+            argument.name == "binding_rule"
+            and not argument.resolved
+        )
+        else argument
+        for argument in step.arguments
+    )
+
+    return (
+        replace(
+            step,
+            arguments=new_arguments,
+            executable=all(
+                argument.resolved
+                for argument in new_arguments
+            ),
+        ),
+        resolution,
+    )
+
 def infer_distance_from_test_scene(
     graph: SceneGraph,
     bindings: SceneRoleBindings,
@@ -320,13 +712,18 @@ def resolve_test_scene_values(
     inference_report: ValueInferenceReport,
     training_stories: Sequence[GeneralizedPairStory],
     test_grid: Sequence[Sequence[int]],
-    bindings: SceneRoleBindings,
+    bindings: SceneRoleBindings | None = None,
     *,
     connectivity: int = 4,
     preferred_void_colors: Iterable[int] = (0,),
     background_hint: int | None = None,
 ) -> SceneValueResolutionReport:
-    """Resolve current MOVE_OBJECT test-specific values and rebuild the plan."""
+    """
+    Bind test-scene roles, resolve MOVE_OBJECT values, and rebuild the plan.
+
+    Explicit bindings remain supported for debugging, but normal pipeline use
+    can leave ``bindings`` as None and allow automatic role binding.
+    """
 
     plan = inference_report.resolved_plan
     graph = build_scene_graph(
@@ -341,13 +738,49 @@ def resolve_test_scene_values(
     resolved_values: list[ResolvedSceneValue] = []
     new_steps: list[PlanStep] = []
 
+    binding_result: SceneRoleBindingResult | None = None
+
+    if bindings is None:
+        try:
+            binding_result = bind_scene_roles(
+                graph,
+                plan,
+                inference_report,
+                training_stories,
+            )
+            bindings = binding_result.bindings
+        except ValueError as error:
+            warnings.append(
+                f"Scene role binding failed: {error}"
+            )
+
     if relationship_goal is None:
         warnings.append(
             "No single directional relationship goal was shared by all train pairs."
         )
 
     for step in plan.steps:
-        if step.operation != MOVE_OBJECT or relationship_goal is None:
+        if (
+            step.operation == BIND_SCENE_ROLES
+            and binding_result is not None
+        ):
+            resolved_step, binding_resolution = (
+                _resolve_binding_step(
+                    step,
+                    binding_result,
+                )
+            )
+            new_steps.append(resolved_step)
+            resolved_values.append(
+                binding_resolution
+            )
+            continue
+
+        if (
+            step.operation != MOVE_OBJECT
+            or relationship_goal is None
+            or bindings is None
+        ):
             new_steps.append(step)
             continue
 
@@ -472,9 +905,22 @@ def _self_test() -> None:
         [0, 0, 0, 0, 0, 0],
     ]
 
-    graph = build_scene_graph(test_grid, connectivity=4)
-    mover = next(node for node in graph.nodes if node.color == 2 and node.cell_count == 4)
-    anchor = next(node for node in graph.nodes if node.color == 3 and node.cell_count == 1)
+    graph = build_scene_graph(
+        test_grid,
+        connectivity=4,
+    )
+    mover = next(
+        node
+        for node in graph.nodes
+        if node.color == 2
+        and node.cell_count == 4
+    )
+    anchor = next(
+        node
+        for node in graph.nodes
+        if node.color == 3
+        and node.cell_count == 1
+    )
 
     result = infer_distance_from_test_scene(
         graph,

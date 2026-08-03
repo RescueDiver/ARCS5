@@ -1,3 +1,4 @@
+
 from __future__ import annotations
 
 import json
@@ -53,6 +54,11 @@ from vision.value_inference import (
     ValueInferenceReport,
     format_value_inference,
     infer_plan_values,
+)
+from vision.scene_value_resolver import (
+    SceneValueResolutionReport,
+    format_scene_value_resolution,
+    resolve_test_scene_values,
 )
 
 
@@ -195,185 +201,6 @@ def prediction_status_text(
     return (
         "Prediction not generated yet: the plan is concrete, but the primitive "
         "executor is not connected to this browser."
-    )
-
-
-def copy_grid(grid: Any) -> list[list[int]]:
-    if not isinstance(grid, list):
-        return []
-
-    copied: list[list[int]] = []
-
-    for row in grid:
-        if not isinstance(row, list):
-            return []
-        copied.append(list(row))
-
-    return copied
-
-
-def _grid_color_counts(grid: Any) -> dict[int, int]:
-    counts: dict[int, int] = {}
-
-    if not isinstance(grid, list):
-        return counts
-
-    for row in grid:
-        if not isinstance(row, list):
-            continue
-
-        for value in row:
-            if isinstance(value, int):
-                counts[value] = counts.get(value, 0) + 1
-
-    return counts
-
-
-def _training_example_distance(
-    source_grid: Any,
-    candidate_input: Any,
-) -> float:
-    """
-    Compare two inputs without looking at either expected output.
-
-    This is only a temporary baseline selector. It is deliberately separate
-    from the learned-rule pipeline and primitive executor.
-    """
-    source_height, source_width = grid_shape(source_grid)
-    candidate_height, candidate_width = grid_shape(candidate_input)
-
-    if source_height == 0 or source_width == 0:
-        return float("inf")
-
-    if candidate_height == 0 or candidate_width == 0:
-        return float("inf")
-
-    shape_penalty = (
-        abs(source_height - candidate_height)
-        + abs(source_width - candidate_width)
-    ) * 10.0
-
-    overlap_height = min(source_height, candidate_height)
-    overlap_width = min(source_width, candidate_width)
-
-    mismatch_count = 0
-    compared_count = 0
-
-    for row_index in range(overlap_height):
-        source_row = source_grid[row_index]
-        candidate_row = candidate_input[row_index]
-
-        if not isinstance(source_row, list) or not isinstance(candidate_row, list):
-            continue
-
-        for column_index in range(overlap_width):
-            compared_count += 1
-
-            if source_row[column_index] != candidate_row[column_index]:
-                mismatch_count += 1
-
-    cell_penalty = (
-        mismatch_count / compared_count
-        if compared_count
-        else 1.0
-    )
-
-    source_counts = _grid_color_counts(source_grid)
-    candidate_counts = _grid_color_counts(candidate_input)
-    all_colors = set(source_counts) | set(candidate_counts)
-
-    total_cells = max(
-        source_height * source_width,
-        candidate_height * candidate_width,
-        1,
-    )
-
-    histogram_penalty = sum(
-        abs(source_counts.get(color, 0) - candidate_counts.get(color, 0))
-        for color in all_colors
-    ) / total_cells
-
-    return shape_penalty + cell_penalty + histogram_penalty
-
-
-@dataclass(frozen=True)
-class ProvisionalPrediction:
-    grid: list[list[int]]
-    status: str
-    source_train_pair: int | None
-
-
-def build_provisional_prediction(
-    source_grid: Any,
-    train_pairs: list[Any],
-    *,
-    excluded_train_index: int | None = None,
-) -> ProvisionalPrediction:
-    """
-    Produce a visible prediction before the primitive executor exists.
-
-    It selects the most similar available training INPUT and transfers that
-    training pair's OUTPUT as a prototype. For train rows, the current pair is
-    excluded so its own expected output cannot be copied.
-
-    This is a temporary visual baseline, not the final ARCs5 solver.
-    """
-    candidates: list[tuple[float, int, list[list[int]]]] = []
-
-    for index, pair in enumerate(train_pairs):
-        if excluded_train_index is not None and index == excluded_train_index:
-            continue
-
-        if not isinstance(pair, dict):
-            continue
-
-        candidate_input = pair.get("input")
-        candidate_output = pair.get("output")
-
-        if not isinstance(candidate_input, list):
-            continue
-
-        if not isinstance(candidate_output, list):
-            continue
-
-        distance = _training_example_distance(
-            source_grid,
-            candidate_input,
-        )
-
-        candidates.append(
-            (
-                distance,
-                index,
-                copy_grid(candidate_output),
-            )
-        )
-
-    if not candidates:
-        return ProvisionalPrediction(
-            grid=unknown_prediction_grid(source_grid),
-            status=(
-                "No provisional prediction was possible because no separate "
-                "training example with an output was available."
-            ),
-            source_train_pair=None,
-        )
-
-    candidates.sort(key=lambda item: (item[0], item[1]))
-    distance, source_index, predicted_grid = candidates[0]
-
-    return ProvisionalPrediction(
-        grid=predicted_grid,
-        status=(
-            "PROVISIONAL VISUAL PREDICTION\n"
-            f"Transferred the output template from train pair {source_index + 1}.\n"
-            f"Input similarity distance: {distance:.4f}\n\n"
-            "This does not use the expected output of the row being predicted. "
-            "It is a temporary nearest-training-example baseline so the final "
-            "grid box displays a real prediction while the primitive executor "
-            "is being built."
-        ),
-        source_train_pair=source_index + 1,
     )
 
 
@@ -1364,6 +1191,71 @@ def format_test_resolution_status(
 
 
 
+def build_test_scene_resolution(
+    pipeline: ReasoningPipelineAnalysis | None,
+    test_grid: Any,
+) -> tuple[SceneValueResolutionReport | None, str]:
+    """
+    Run the real scene-value resolver for one test input.
+
+    This replaces the old informational placeholder panel.
+    """
+    if pipeline is None:
+        return (
+            None,
+            "\n".join([
+                "=" * 72,
+                "TEST-SCENE VALUE RESOLUTION",
+                "=" * 72,
+                "Blocked: the reasoning pipeline was not built.",
+            ]),
+        )
+
+    if pipeline.inference is None:
+        return (
+            None,
+            "\n".join([
+                "=" * 72,
+                "TEST-SCENE VALUE RESOLUTION",
+                "=" * 72,
+                "Blocked: value inference was not reached.",
+            ]),
+        )
+
+    if not isinstance(test_grid, list) or not test_grid:
+        return (
+            None,
+            "\n".join([
+                "=" * 72,
+                "TEST-SCENE VALUE RESOLUTION",
+                "=" * 72,
+                "Blocked: the test input grid is missing.",
+            ]),
+        )
+
+    try:
+        report = resolve_test_scene_values(
+            inference_report=pipeline.inference,
+            training_stories=pipeline.generalized_stories,
+            test_grid=test_grid,
+            bindings=None,
+            connectivity=4,
+        )
+
+        return report, format_scene_value_resolution(report)
+
+    except Exception as error:
+        return (
+            None,
+            "\n".join([
+                "=" * 72,
+                "TEST-SCENE VALUE RESOLUTION FAILED",
+                "=" * 72,
+                f"{type(error).__name__}: {error}",
+            ]),
+        )
+
+
 # =============================================================================
 # TASK REVIEW WINDOW
 # =============================================================================
@@ -1690,16 +1582,10 @@ class TaskReviewWindow(tk.Toplevel):
                 pady=(0, 8),
             )
 
-            provisional_prediction = build_provisional_prediction(
-                input_grid,
-                train_pairs,
-                excluded_train_index=pair_index - 1,
-            )
-
             prediction_panel = GridPanel(
                 self.task_content,
-                title="PREDICTED OUTPUT — PROVISIONAL",
-                grid=provisional_prediction.grid,
+                title="PREDICTED OUTPUT — NOT GENERATED",
+                grid=unknown_prediction_grid(input_grid),
             )
             prediction_panel.grid(
                 row=row_number,
@@ -1713,8 +1599,8 @@ class TaskReviewWindow(tk.Toplevel):
             prediction_status_panel = AnalysisTextPanel(
                 self.task_content,
                 title="TRAIN PREDICTION STATUS",
-                text=provisional_prediction.status,
-                height=7,
+                text=prediction_status_text(reasoning_pipeline),
+                height=5,
                 title_color="#F28B82",
             )
             prediction_status_panel.grid(
@@ -1923,15 +1809,10 @@ class TaskReviewWindow(tk.Toplevel):
                 pady=(0, 8),
             )
 
-            provisional_prediction = build_provisional_prediction(
-                input_grid,
-                train_pairs,
-            )
-
             prediction_panel = GridPanel(
                 self.task_content,
-                title="PREDICTED OUTPUT — PROVISIONAL",
-                grid=provisional_prediction.grid,
+                title="PREDICTED OUTPUT — NOT GENERATED",
+                grid=unknown_prediction_grid(input_grid),
             )
             prediction_panel.grid(
                 row=row_number,
@@ -1945,8 +1826,8 @@ class TaskReviewWindow(tk.Toplevel):
             prediction_status_panel = AnalysisTextPanel(
                 self.task_content,
                 title="TEST PREDICTION STATUS",
-                text=provisional_prediction.status,
-                height=7,
+                text=prediction_status_text(reasoning_pipeline),
+                height=5,
                 title_color="#F28B82",
             )
             prediction_status_panel.grid(
@@ -1959,13 +1840,17 @@ class TaskReviewWindow(tk.Toplevel):
             )
             row_number += 1
 
+            scene_resolution_report, scene_resolution_text = (
+                build_test_scene_resolution(
+                    reasoning_pipeline,
+                    input_grid,
+                )
+            )
+
             resolution_panel = AnalysisTextPanel(
                 self.task_content,
                 title="TEST-SCENE VALUE RESOLUTION",
-                text=format_test_resolution_status(
-                    reasoning_pipeline,
-                    input_grid,
-                ),
+                text=scene_resolution_text,
                 height=TEST_RESOLUTION_PANEL_HEIGHT,
                 title_color="#F28B82",
             )

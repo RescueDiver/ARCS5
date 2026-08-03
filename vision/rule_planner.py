@@ -1269,6 +1269,163 @@ def _arguments_for_event(
     return tuple(arguments)
 
 
+def _slot_exact_properties(slot: Any) -> dict[str, Any]:
+    try:
+        return dict(slot.exact_properties)
+    except (AttributeError, TypeError, ValueError):
+        return {}
+
+
+def _slot_variable_properties(slot: Any) -> set[str]:
+    try:
+        return set(slot.variable_properties)
+    except (AttributeError, TypeError):
+        return set()
+
+
+def _arguments_for_slot(
+    stories: Sequence[GeneralizedPairStory],
+    slot: Any,
+    spec: PrimitiveSpec,
+    candidate: CandidateRule,
+) -> tuple[PlanArgument, ...]:
+    """
+    Build one operation for one learned structural role.
+
+    Fixed slot properties are passed through as resolved arguments.
+    Variable slot properties remain unresolved for value inference.
+    """
+    event_type = str(slot.event_type)
+    slot_name = str(slot.slot_name)
+    exact = _slot_exact_properties(slot)
+    variable = _slot_variable_properties(slot)
+
+    arguments: list[PlanArgument] = [
+        _arg(
+            "learned_role",
+            slot_name,
+            source="rule learner structural role",
+            resolved=True,
+        ),
+        _arg(
+            "role_signature",
+            getattr(slot, "structural_signature", ()),
+            source="rule learner role correspondence",
+            resolved=True,
+        ),
+    ]
+
+    for property_name in spec.argument_names:
+        if property_name == "preserve":
+            arguments.append(
+                _arg(
+                    "preserve",
+                    ("position", "shape", "color", "size", "identity"),
+                    source="learned preservation facts",
+                    resolved=True,
+                )
+            )
+            continue
+
+        if property_name == "selection_rule":
+            arguments.append(
+                _arg(
+                    "selection_rule",
+                    {
+                        "learned_role": slot_name,
+                        "fixed_properties": exact,
+                    },
+                    source="learned structural role and fixed properties",
+                    resolved=True,
+                )
+            )
+            continue
+
+        if property_name in {
+            "collision_policy",
+            "bounds_policy",
+            "overlap_policy",
+        }:
+            arguments.append(
+                _arg(
+                    property_name,
+                    "reject_invalid",
+                    source="safe executor default",
+                    resolved=True,
+                )
+            )
+            continue
+
+        if property_name in exact:
+            arguments.append(
+                _arg(
+                    property_name,
+                    exact[property_name],
+                    source=f"fixed property of learned role {slot_name}",
+                    resolved=True,
+                )
+            )
+            continue
+
+        if property_name in variable:
+            arguments.append(
+                _arg(
+                    property_name,
+                    None,
+                    source=(
+                        f"property varies for learned role {slot_name}; "
+                        "infer from the test scene"
+                    ),
+                    resolved=False,
+                )
+            )
+            continue
+
+        arguments.append(
+            _argument_for_property(
+                stories,
+                event_type,
+                property_name,
+            )
+        )
+
+    if spec.selection_needed and not any(
+        argument.name == "selection_rule"
+        for argument in arguments
+    ):
+        arguments.insert(
+            2,
+            _arg(
+                "selection_rule",
+                {
+                    "learned_role": slot_name,
+                    "fixed_properties": exact,
+                },
+                source="learned structural role and fixed properties",
+                resolved=True,
+            ),
+        )
+
+    if event_type == "object_translation":
+        variable_facts = set(candidate.variable_facts)
+
+        arguments.append(
+            _arg(
+                "distance_policy",
+                (
+                    "infer_from_test_scene"
+                    if "moving_object.translation_distance varies"
+                    in variable_facts
+                    else "fixed_or_learned"
+                ),
+                source="learned rule variability",
+                resolved=True,
+            )
+        )
+
+    return tuple(arguments)
+
+
 # =============================================================================
 # FALLBACK PLANNING FOR FUTURE EVENTS
 # =============================================================================
@@ -1614,11 +1771,65 @@ def build_rule_plan(
             purpose,
         )
 
-    for event_type in required_types:
-        if event_type == "object_preservation":
-            spec = EVENT_SPECS[event_type]
+    planned_slot_event_types: set[str] = set()
+
+    for slot in candidate.required_event_slots:
+        event_type = slot.event_type
+        planned_slot_event_types.add(event_type)
+
+        spec = EVENT_SPECS.get(event_type)
+
+        if spec is None:
+            spec = _fallback_spec(event_type)
+            warnings.append(
+                f"Role {slot.slot_name!r} uses the generic future-event planner."
+            )
+
+        if spec.operation == APPLY_GENERIC_EVENT:
+            arguments = (
+                _arg(
+                    "learned_role",
+                    slot.slot_name,
+                    source="rule learner structural role",
+                    resolved=True,
+                ),
+                _arg(
+                    "event_properties",
+                    dict(slot.exact_properties),
+                    source="fixed properties of learned role",
+                    resolved=True,
+                ),
+                _arg(
+                    "variable_properties",
+                    tuple(slot.variable_properties),
+                    source="variable properties of learned role",
+                    resolved=True,
+                ),
+            )
         else:
-            spec = EVENT_SPECS.get(event_type)
+            arguments = _arguments_for_slot(
+                stories,
+                slot,
+                spec,
+                candidate,
+            )
+
+        _append_step(
+            steps,
+            spec.operation,
+            slot.slot_name,
+            arguments,
+            f"{spec.purpose} Learned role: {slot.slot_name}.",
+            source_event_type=event_type,
+        )
+
+    # Some event types may not yet have a learned role. Preserve those through
+    # the existing event-level planner instead of dropping them.
+    for event_type in required_types:
+        if event_type in planned_slot_event_types:
+            continue
+
+        spec = EVENT_SPECS.get(event_type)
 
         if spec is None:
             spec = _fallback_spec(event_type)
